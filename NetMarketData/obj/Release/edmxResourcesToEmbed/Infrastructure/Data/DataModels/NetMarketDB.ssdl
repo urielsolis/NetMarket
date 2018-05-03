@@ -1,0 +1,827 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NetMarketDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CategoriaProducto">
+    <Key>
+      <PropertyRef Name="idCategoria" />
+    </Key>
+    <Property Name="idCategoria" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreCategoria" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Destacados">
+    <Key>
+      <PropertyRef Name="idDestacado" />
+    </Key>
+    <Property Name="idDestacado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idProducto" Type="bigint" Nullable="false" />
+    <Property Name="fechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="fechaFin" Type="datetime" />
+    <Property Name="habilitado" Type="bit" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleHorario">
+    <Key>
+      <PropertyRef Name="idTurno" />
+      <PropertyRef Name="idDia" />
+    </Key>
+    <Property Name="idTurno" Type="bigint" Nullable="false" />
+    <Property Name="idDia" Type="bigint" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetalleOferta">
+    <Key>
+      <PropertyRef Name="idProductoEmpresa" />
+      <PropertyRef Name="idOferta" />
+    </Key>
+    <Property Name="idProductoEmpresa" Type="bigint" Nullable="false" />
+    <Property Name="idOferta" Type="bigint" Nullable="false" />
+    <Property Name="porcentajeDescuento" Type="int" />
+    <Property Name="CantidadProductosOferta" Type="int" />
+  </EntityType>
+  <EntityType Name="DetallePedido">
+    <Key>
+      <PropertyRef Name="idPedido" />
+      <PropertyRef Name="idProducto" />
+    </Key>
+    <Property Name="idPedido" Type="bigint" Nullable="false" />
+    <Property Name="idProducto" Type="bigint" Nullable="false" />
+    <Property Name="cantidadProducto" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Dia">
+    <Key>
+      <PropertyRef Name="iddia" />
+    </Key>
+    <Property Name="iddia" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dia" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="idEmpresa" />
+    </Key>
+    <Property Name="idEmpresa" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreEmpresa" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="nit" Type="varchar(max)" Nullable="false" />
+    <Property Name="razonSocial" Type="varchar(max)" Nullable="false" />
+    <Property Name="direccionCentral" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Encargado">
+    <Key>
+      <PropertyRef Name="idPersona" />
+    </Key>
+    <Property Name="idPersona" Type="bigint" Nullable="false" />
+    <Property Name="cargo" Type="varchar" MaxLength="50" />
+    <Property Name="idSuperMercado" Type="bigint" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Imagen">
+    <Key>
+      <PropertyRef Name="idImagen" />
+    </Key>
+    <Property Name="idImagen" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rutaImagen" Type="varchar(max)" Nullable="false" />
+    <Property Name="idProducto" Type="bigint" />
+    <Property Name="idOferta" Type="bigint" />
+    <Property Name="idEmpresa" Type="bigint" />
+    <Property Name="idSucursal" Type="bigint" />
+    <Property Name="idProductoSucursal" Type="bigint" />
+    <Property Name="idProductoEmpresa" Type="bigint" />
+    <Property Name="idPersona" Type="bigint" />
+    <Property Name="idCategoria" Type="bigint" />
+    <Property Name="Principal" Type="bit" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="oferta">
+    <Key>
+      <PropertyRef Name="idOferta" />
+    </Key>
+    <Property Name="idOferta" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreOferta" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="descripcionOferta" Type="varchar" MaxLength="300" />
+    <Property Name="fechaInicioOferta" Type="datetime" Nullable="false" />
+    <Property Name="fechaFinOferta" Type="bigint" Nullable="false" />
+    <Property Name="idEmpresa" Type="bigint" />
+    <Property Name="idSucursal" Type="bigint" />
+    <Property Name="idProductoEmpresa" Type="bigint" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OfertaSucursal">
+    <Key>
+      <PropertyRef Name="idOferta" />
+      <PropertyRef Name="idSucursal" />
+    </Key>
+    <Property Name="idOferta" Type="bigint" Nullable="false" />
+    <Property Name="idSucursal" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="idPedido" />
+    </Key>
+    <Property Name="idPedido" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fechaPedido" Type="datetime" Nullable="false" />
+    <Property Name="idUsuario" Type="bigint" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="idPersona" />
+    </Key>
+    <Property Name="idPersona" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombrePersona" Type="varchar" MaxLength="300" />
+    <Property Name="apellidos" Type="varchar" MaxLength="300" />
+    <Property Name="fechaNacimiento" Type="datetime" />
+    <Property Name="contraseña" Type="varchar(max)" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="idTipoPersona" Type="bigint" Nullable="false" />
+    <Property Name="telefonoMovilPersona" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telefonoFijo" Type="varchar" MaxLength="100" />
+    <Property Name="CiPersona" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="idProducto" />
+    </Key>
+    <Property Name="idProducto" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreProducto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="descripcionProducto" Type="varchar(max)" Nullable="false" />
+    <Property Name="idCategoria" Type="bigint" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductoEmpresa">
+    <Key>
+      <PropertyRef Name="idProductoEmpresa" />
+    </Key>
+    <Property Name="idProductoEmpresa" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idProducto" Type="bigint" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="idEmpresa" Type="bigint" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductoSucursal">
+    <Key>
+      <PropertyRef Name="idProductoSucursal" />
+    </Key>
+    <Property Name="idProductoSucursal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idProductoEmpresa" Type="bigint" Nullable="false" />
+    <Property Name="idSucursal" Type="bigint" Nullable="false" />
+    <Property Name="precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Stock" Type="int" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SeguimientoSolicitudPedido">
+    <Key>
+      <PropertyRef Name="idSeguimientoSolicitudPedido" />
+    </Key>
+    <Property Name="idSeguimientoSolicitudPedido" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fechaHoraModificacion" Type="datetime" Nullable="false" />
+    <Property Name="nuevoIdEstado" Type="bigint" />
+    <Property Name="idSolicitudPedido" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SolicitudPedido">
+    <Key>
+      <PropertyRef Name="idSolicitudPedido" />
+    </Key>
+    <Property Name="idSolicitudPedido" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPedido" Type="bigint" />
+    <Property Name="idTipoPago" Type="bigint" Nullable="false" />
+    <Property Name="idTipoEnvio" Type="bigint" Nullable="false" />
+    <Property Name="fechaSolicitud" Type="datetime" Nullable="false" />
+    <Property Name="montoPedido" Type="int" Nullable="false" />
+    <Property Name="idSolicitudPedidoEstado" Type="bigint" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SolicitudPedidoEstado">
+    <Key>
+      <PropertyRef Name="idSolicitudPedidoEstado" />
+    </Key>
+    <Property Name="idSolicitudPedidoEstado" Type="bigint" Nullable="false" />
+    <Property Name="nombreSolicitudPedidoEstado" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sucursal">
+    <Key>
+      <PropertyRef Name="idSucursal" />
+    </Key>
+    <Property Name="idSucursal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreSucursal" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="idEmpresa" Type="bigint" Nullable="false" />
+    <Property Name="eliminado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipodeEnvio">
+    <Key>
+      <PropertyRef Name="idTipoEnvio" />
+    </Key>
+    <Property Name="idTipoEnvio" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreTipoEnvio" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipodePago">
+    <Key>
+      <PropertyRef Name="idTipoPago" />
+    </Key>
+    <Property Name="idTipoPago" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreTipo" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoPersona">
+    <Key>
+      <PropertyRef Name="idTipoPersona" />
+    </Key>
+    <Property Name="idTipoPersona" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreTipo" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Turno">
+    <Key>
+      <PropertyRef Name="idTurno" />
+    </Key>
+    <Property Name="idTurno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSucursal" Type="bigint" Nullable="false" />
+    <Property Name="apertura" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="cierre" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Destacados_ProductoEmpresa">
+    <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="1" />
+    <End Role="Destacados" Type="Self.Destacados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductoEmpresa">
+        <PropertyRef Name="idProductoEmpresa" />
+      </Principal>
+      <Dependent Role="Destacados">
+        <PropertyRef Name="idProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleHorario_Dia">
+    <End Role="Dia" Type="Self.Dia" Multiplicity="1" />
+    <End Role="DetalleHorario" Type="Self.DetalleHorario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dia">
+        <PropertyRef Name="iddia" />
+      </Principal>
+      <Dependent Role="DetalleHorario">
+        <PropertyRef Name="idDia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleHorario_Turno">
+    <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+    <End Role="DetalleHorario" Type="Self.DetalleHorario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Turno">
+        <PropertyRef Name="idTurno" />
+      </Principal>
+      <Dependent Role="DetalleHorario">
+        <PropertyRef Name="idTurno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleOferta_oferta">
+    <End Role="oferta" Type="Self.oferta" Multiplicity="1" />
+    <End Role="DetalleOferta" Type="Self.DetalleOferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oferta">
+        <PropertyRef Name="idOferta" />
+      </Principal>
+      <Dependent Role="DetalleOferta">
+        <PropertyRef Name="idProductoEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetalleOferta_ProductoSucursal">
+    <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="1" />
+    <End Role="DetalleOferta" Type="Self.DetalleOferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductoSucursal">
+        <PropertyRef Name="idProductoSucursal" />
+      </Principal>
+      <Dependent Role="DetalleOferta">
+        <PropertyRef Name="idProductoEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallePedido_Pedido">
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+    <End Role="DetallePedido" Type="Self.DetallePedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="idPedido" />
+      </Principal>
+      <Dependent Role="DetallePedido">
+        <PropertyRef Name="idPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DetallePedido_ProductoSucursal">
+    <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="1" />
+    <End Role="DetallePedido" Type="Self.DetallePedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductoSucursal">
+        <PropertyRef Name="idProductoSucursal" />
+      </Principal>
+      <Dependent Role="DetallePedido">
+        <PropertyRef Name="idProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encargado_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Encargado" Type="Self.Encargado" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="Encargado">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encargado_Supermercado">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="Encargado" Type="Self.Encargado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="idEmpresa" />
+      </Principal>
+      <Dependent Role="Encargado">
+        <PropertyRef Name="idSuperMercado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Galeria_oferta">
+    <End Role="oferta" Type="Self.oferta" Multiplicity="0..1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oferta">
+        <PropertyRef Name="idOferta" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="idOferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Galeria_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="idProducto" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="idProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Galeria_Supermercado">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="idEmpresa" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Imagen_CategoriaProducto">
+    <End Role="CategoriaProducto" Type="Self.CategoriaProducto" Multiplicity="0..1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriaProducto">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Imagen_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Imagen_ProductoEmpresa">
+    <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="0..1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductoEmpresa">
+        <PropertyRef Name="idProductoEmpresa" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="idProductoEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Imagen_ProductoSucursal">
+    <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="0..1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductoSucursal">
+        <PropertyRef Name="idProductoSucursal" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="idProductoSucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Imagen_Sucursal">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="idSucursal" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="idSucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_oferta_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="oferta" Type="Self.oferta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="idEmpresa" />
+      </Principal>
+      <Dependent Role="oferta">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfertaSucursal_oferta">
+    <End Role="oferta" Type="Self.oferta" Multiplicity="1" />
+    <End Role="OfertaSucursal" Type="Self.OfertaSucursal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oferta">
+        <PropertyRef Name="idOferta" />
+      </Principal>
+      <Dependent Role="OfertaSucursal">
+        <PropertyRef Name="idOferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OfertaSucursal_Sucursal">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+    <End Role="OfertaSucursal" Type="Self.OfertaSucursal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="idSucursal" />
+      </Principal>
+      <Dependent Role="OfertaSucursal">
+        <PropertyRef Name="idSucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedido_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="idPersona" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Persona_TipoPersona">
+    <End Role="TipoPersona" Type="Self.TipoPersona" Multiplicity="1" />
+    <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPersona">
+        <PropertyRef Name="idTipoPersona" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="idTipoPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_CategoriaProducto">
+    <End Role="CategoriaProducto" Type="Self.CategoriaProducto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriaProducto">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductoEmpresa_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="idEmpresa" />
+      </Principal>
+      <Dependent Role="ProductoEmpresa">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductoEmpresa_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="idProducto" />
+      </Principal>
+      <Dependent Role="ProductoEmpresa">
+        <PropertyRef Name="idProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductoSucursal_ProductoEmpresa">
+    <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="1" />
+    <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductoEmpresa">
+        <PropertyRef Name="idProductoEmpresa" />
+      </Principal>
+      <Dependent Role="ProductoSucursal">
+        <PropertyRef Name="idProductoEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductoSucursal_Sucursal">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+    <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="idSucursal" />
+      </Principal>
+      <Dependent Role="ProductoSucursal">
+        <PropertyRef Name="idSucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_seguimientoSolicitudPedido_SolicitudPedido">
+    <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="1" />
+    <End Role="SeguimientoSolicitudPedido" Type="Self.SeguimientoSolicitudPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SolicitudPedido">
+        <PropertyRef Name="idSolicitudPedido" />
+      </Principal>
+      <Dependent Role="SeguimientoSolicitudPedido">
+        <PropertyRef Name="idSolicitudPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_seguimientoSolicitudPedido_SolicitudPedidoEstado">
+    <End Role="SolicitudPedidoEstado" Type="Self.SolicitudPedidoEstado" Multiplicity="0..1" />
+    <End Role="SeguimientoSolicitudPedido" Type="Self.SeguimientoSolicitudPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SolicitudPedidoEstado">
+        <PropertyRef Name="idSolicitudPedidoEstado" />
+      </Principal>
+      <Dependent Role="SeguimientoSolicitudPedido">
+        <PropertyRef Name="nuevoIdEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudPedido_Pedido">
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="0..1" />
+    <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="idPedido" />
+      </Principal>
+      <Dependent Role="SolicitudPedido">
+        <PropertyRef Name="idPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudPedido_SolicitudPedidoEstado">
+    <End Role="SolicitudPedidoEstado" Type="Self.SolicitudPedidoEstado" Multiplicity="1" />
+    <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SolicitudPedidoEstado">
+        <PropertyRef Name="idSolicitudPedidoEstado" />
+      </Principal>
+      <Dependent Role="SolicitudPedido">
+        <PropertyRef Name="idSolicitudPedidoEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudPedido_TipodeEnvio">
+    <End Role="TipodeEnvio" Type="Self.TipodeEnvio" Multiplicity="1" />
+    <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipodeEnvio">
+        <PropertyRef Name="idTipoEnvio" />
+      </Principal>
+      <Dependent Role="SolicitudPedido">
+        <PropertyRef Name="idTipoEnvio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudPedido_TipodePago">
+    <End Role="TipodePago" Type="Self.TipodePago" Multiplicity="1" />
+    <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipodePago">
+        <PropertyRef Name="idTipoPago" />
+      </Principal>
+      <Dependent Role="SolicitudPedido">
+        <PropertyRef Name="idTipoPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sucursal_Supermercado">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="idEmpresa" />
+      </Principal>
+      <Dependent Role="Sucursal">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Turno_Sucursal">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+    <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="idSucursal" />
+      </Principal>
+      <Dependent Role="Turno">
+        <PropertyRef Name="idSucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NetMarketDBModelStoreContainer">
+    <EntitySet Name="CategoriaProducto" EntityType="Self.CategoriaProducto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Destacados" EntityType="Self.Destacados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleHorario" EntityType="Self.DetalleHorario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleOferta" EntityType="Self.DetalleOferta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetallePedido" EntityType="Self.DetallePedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dia" EntityType="Self.Dia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Encargado" EntityType="Self.Encargado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Imagen" EntityType="Self.Imagen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="oferta" EntityType="Self.oferta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OfertaSucursal" EntityType="Self.OfertaSucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductoEmpresa" EntityType="Self.ProductoEmpresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductoSucursal" EntityType="Self.ProductoSucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SeguimientoSolicitudPedido" EntityType="Self.SeguimientoSolicitudPedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SolicitudPedido" EntityType="Self.SolicitudPedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SolicitudPedidoEstado" EntityType="Self.SolicitudPedidoEstado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipodeEnvio" EntityType="Self.TipodeEnvio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipodePago" EntityType="Self.TipodePago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPersona" EntityType="Self.TipoPersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Destacados_ProductoEmpresa" Association="Self.FK_Destacados_ProductoEmpresa">
+      <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+      <End Role="Destacados" EntitySet="Destacados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleHorario_Dia" Association="Self.FK_DetalleHorario_Dia">
+      <End Role="Dia" EntitySet="Dia" />
+      <End Role="DetalleHorario" EntitySet="DetalleHorario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleHorario_Turno" Association="Self.FK_DetalleHorario_Turno">
+      <End Role="Turno" EntitySet="Turno" />
+      <End Role="DetalleHorario" EntitySet="DetalleHorario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleOferta_oferta" Association="Self.FK_DetalleOferta_oferta">
+      <End Role="oferta" EntitySet="oferta" />
+      <End Role="DetalleOferta" EntitySet="DetalleOferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetalleOferta_ProductoSucursal" Association="Self.FK_DetalleOferta_ProductoSucursal">
+      <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+      <End Role="DetalleOferta" EntitySet="DetalleOferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallePedido_Pedido" Association="Self.FK_DetallePedido_Pedido">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="DetallePedido" EntitySet="DetallePedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DetallePedido_ProductoSucursal" Association="Self.FK_DetallePedido_ProductoSucursal">
+      <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+      <End Role="DetallePedido" EntitySet="DetallePedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encargado_Persona" Association="Self.FK_Encargado_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Encargado" EntitySet="Encargado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encargado_Supermercado" Association="Self.FK_Encargado_Supermercado">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Encargado" EntitySet="Encargado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Galeria_oferta" Association="Self.FK_Galeria_oferta">
+      <End Role="oferta" EntitySet="oferta" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Galeria_Producto" Association="Self.FK_Galeria_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Galeria_Supermercado" Association="Self.FK_Galeria_Supermercado">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Imagen_CategoriaProducto" Association="Self.FK_Imagen_CategoriaProducto">
+      <End Role="CategoriaProducto" EntitySet="CategoriaProducto" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Imagen_Persona" Association="Self.FK_Imagen_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Imagen_ProductoEmpresa" Association="Self.FK_Imagen_ProductoEmpresa">
+      <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Imagen_ProductoSucursal" Association="Self.FK_Imagen_ProductoSucursal">
+      <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Imagen_Sucursal" Association="Self.FK_Imagen_Sucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_oferta_Empresa" Association="Self.FK_oferta_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="oferta" EntitySet="oferta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfertaSucursal_oferta" Association="Self.FK_OfertaSucursal_oferta">
+      <End Role="oferta" EntitySet="oferta" />
+      <End Role="OfertaSucursal" EntitySet="OfertaSucursal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OfertaSucursal_Sucursal" Association="Self.FK_OfertaSucursal_Sucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="OfertaSucursal" EntitySet="OfertaSucursal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedido_Persona" Association="Self.FK_Pedido_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Persona_TipoPersona" Association="Self.FK_Persona_TipoPersona">
+      <End Role="TipoPersona" EntitySet="TipoPersona" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_CategoriaProducto" Association="Self.FK_Producto_CategoriaProducto">
+      <End Role="CategoriaProducto" EntitySet="CategoriaProducto" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductoEmpresa_Empresa" Association="Self.FK_ProductoEmpresa_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductoEmpresa_Producto" Association="Self.FK_ProductoEmpresa_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductoSucursal_ProductoEmpresa" Association="Self.FK_ProductoSucursal_ProductoEmpresa">
+      <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+      <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductoSucursal_Sucursal" Association="Self.FK_ProductoSucursal_Sucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_seguimientoSolicitudPedido_SolicitudPedido" Association="Self.FK_seguimientoSolicitudPedido_SolicitudPedido">
+      <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+      <End Role="SeguimientoSolicitudPedido" EntitySet="SeguimientoSolicitudPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_seguimientoSolicitudPedido_SolicitudPedidoEstado" Association="Self.FK_seguimientoSolicitudPedido_SolicitudPedidoEstado">
+      <End Role="SolicitudPedidoEstado" EntitySet="SolicitudPedidoEstado" />
+      <End Role="SeguimientoSolicitudPedido" EntitySet="SeguimientoSolicitudPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudPedido_Pedido" Association="Self.FK_SolicitudPedido_Pedido">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudPedido_SolicitudPedidoEstado" Association="Self.FK_SolicitudPedido_SolicitudPedidoEstado">
+      <End Role="SolicitudPedidoEstado" EntitySet="SolicitudPedidoEstado" />
+      <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudPedido_TipodeEnvio" Association="Self.FK_SolicitudPedido_TipodeEnvio">
+      <End Role="TipodeEnvio" EntitySet="TipodeEnvio" />
+      <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudPedido_TipodePago" Association="Self.FK_SolicitudPedido_TipodePago">
+      <End Role="TipodePago" EntitySet="TipodePago" />
+      <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sucursal_Supermercado" Association="Self.FK_Sucursal_Supermercado">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Sucursal" EntitySet="Sucursal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Turno_Sucursal" Association="Self.FK_Turno_Sucursal">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Turno" EntitySet="Turno" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

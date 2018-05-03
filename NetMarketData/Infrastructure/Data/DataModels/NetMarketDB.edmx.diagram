@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="57bb8183a5bf4f7ea58b67fbd4150bc0" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="NetMarketDBModel.DetallePedido" Width="1.5" PointX="14" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel.SeguimientoSolicitudPedido" Width="1.5" PointX="11" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel.SolicitudPedidoEstado" Width="1.5" PointX="8.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel.TipodeEnvio" Width="1.5" PointX="11.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel.TipodePago" Width="1.5" PointX="11.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel.TipoPersona" Width="1.5" PointX="2.625" PointY="3.625" IsExpanded="true" />
+        <AssociationConnector Association="NetMarketDBModel.FK_seguimientoSolicitudPedido_SolicitudPedidoEstado" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Empresa" Width="1.5" PointX="0.75" PointY="14" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Encargado" Width="1.5" PointX="9.75" PointY="11.75" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Pedido" Width="1.5" PointX="9.75" PointY="8.125" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Persona" Width="1.5" PointX="5" PointY="4.875" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Producto" Width="1.5" PointX="0.75" PointY="18.25" />
+        <EntityTypeShape EntityType="NetMarketDBModel.ProductoEmpresa" Width="1.5" PointX="3" PointY="16.25" />
+        <EntityTypeShape EntityType="NetMarketDBModel.SolicitudPedido" Width="1.5" PointX="15" PointY="3.125" />
+        <AssociationConnector Association="NetMarketDBModel.FK_DetallePedido_Pedido" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Encargado_Supermercado" />
+        <AssociationConnector Association="NetMarketDBModel.FK_ProductoEmpresa_Empresa" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Encargado_Persona" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Pedido_Persona" />
+        <AssociationConnector Association="NetMarketDBModel.FK_SolicitudPedido_Pedido" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Persona_TipoPersona" />
+        <AssociationConnector Association="NetMarketDBModel.FK_ProductoEmpresa_Producto" />
+        <AssociationConnector Association="NetMarketDBModel.FK_seguimientoSolicitudPedido_SolicitudPedido" />
+        <AssociationConnector Association="NetMarketDBModel.FK_SolicitudPedido_SolicitudPedidoEstado" />
+        <AssociationConnector Association="NetMarketDBModel.FK_SolicitudPedido_TipodeEnvio" />
+        <AssociationConnector Association="NetMarketDBModel.FK_SolicitudPedido_TipodePago" />
+        <EntityTypeShape EntityType="NetMarketDBModel.DetalleOferta" Width="1.5" PointX="14.75" PointY="11.75" />
+        <EntityTypeShape EntityType="NetMarketDBModel.oferta" Width="1.5" PointX="3" PointY="11.75" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Sucursal" Width="1.5" PointX="5.25" PointY="16.125" />
+        <AssociationConnector Association="NetMarketDBModel.FK_DetalleOferta_oferta" />
+        <AssociationConnector Association="NetMarketDBModel.FK_oferta_Empresa" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Sucursal_Supermercado" />
+        <AssociationConnector Association="NetMarketDBModel.OfertaSucursal" />
+        <EntityTypeShape EntityType="NetMarketDBModel.CategoriaProducto" Width="1.5" PointX="0.75" PointY="21.625" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Producto_CategoriaProducto" />
+        <EntityTypeShape EntityType="NetMarketDBModel.ProductoSucursal" Width="1.5" PointX="10.5" PointY="15.875" />
+        <AssociationConnector Association="NetMarketDBModel.FK_DetalleOferta_ProductoSucursal" />
+        <AssociationConnector Association="NetMarketDBModel.FK_DetallePedido_ProductoSucursal" />
+        <AssociationConnector Association="NetMarketDBModel.FK_ProductoSucursal_ProductoEmpresa" />
+        <AssociationConnector Association="NetMarketDBModel.FK_ProductoSucursal_Sucursal" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Destacados" Width="1.5" PointX="5.25" PointY="20.5" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Destacados_ProductoEmpresa" />
+        <EntityTypeShape EntityType="NetMarketDBModel.DetalleHorario" Width="1.5" PointX="9.75" PointY="20.625" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Dia" Width="1.5" PointX="12.5" PointY="20.875" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Turno" Width="1.5" PointX="7.5" PointY="20.5" />
+        <AssociationConnector Association="NetMarketDBModel.FK_DetalleHorario_Dia" />
+        <AssociationConnector Association="NetMarketDBModel.FK_DetalleHorario_Turno" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Turno_Sucursal" />
+        <EntityTypeShape EntityType="NetMarketDBModel.Imagen" Width="1.5" PointX="8.25" PointY="14.5" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Imagen_CategoriaProducto" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Galeria_Supermercado" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Galeria_oferta" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Galeria_Producto" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Imagen_Persona" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Imagen_ProductoEmpresa" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Imagen_ProductoSucursal" />
+        <AssociationConnector Association="NetMarketDBModel.FK_Imagen_Sucursal" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

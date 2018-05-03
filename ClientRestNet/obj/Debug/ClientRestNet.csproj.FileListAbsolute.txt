@@ -1,0 +1,9 @@
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\obj\Debug\ClientRestNet.csprojResolveAssemblyReference.cache
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\bin\Debug\ClientRestNet.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\bin\Debug\ClientRestNet.pdb
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\bin\Debug\Newtonsoft.Json.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\bin\Debug\Newtonsoft.Json.xml
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\obj\Debug\ClientRestNet.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\ClientRestNet\obj\Debug\ClientRestNet.pdb

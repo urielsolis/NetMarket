@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NetMarketDBModelStoreContainer" CdmEntityContainer="NetMarketDBEntities">
+    <EntitySetMapping Name="DetallePedido">
+      <EntityTypeMapping TypeName="NetMarketDBModel.DetallePedido">
+        <MappingFragment StoreEntitySet="DetallePedido">
+          <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+          <ScalarProperty Name="cantidadProducto" ColumnName="cantidadProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SeguimientoSolicitudPedido">
+      <EntityTypeMapping TypeName="NetMarketDBModel.SeguimientoSolicitudPedido">
+        <MappingFragment StoreEntitySet="SeguimientoSolicitudPedido">
+          <ScalarProperty Name="idSeguimientoSolicitudPedido" ColumnName="idSeguimientoSolicitudPedido" />
+          <ScalarProperty Name="fechaHoraModificacion" ColumnName="fechaHoraModificacion" />
+          <ScalarProperty Name="nuevoIdEstado" ColumnName="nuevoIdEstado" />
+          <ScalarProperty Name="idSolicitudPedido" ColumnName="idSolicitudPedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SolicitudPedidoEstado">
+      <EntityTypeMapping TypeName="NetMarketDBModel.SolicitudPedidoEstado">
+        <MappingFragment StoreEntitySet="SolicitudPedidoEstado">
+          <ScalarProperty Name="idSolicitudPedidoEstado" ColumnName="idSolicitudPedidoEstado" />
+          <ScalarProperty Name="nombreSolicitudPedidoEstado" ColumnName="nombreSolicitudPedidoEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipodeEnvio">
+      <EntityTypeMapping TypeName="NetMarketDBModel.TipodeEnvio">
+        <MappingFragment StoreEntitySet="TipodeEnvio">
+          <ScalarProperty Name="idTipoEnvio" ColumnName="idTipoEnvio" />
+          <ScalarProperty Name="nombreTipoEnvio" ColumnName="nombreTipoEnvio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipodePago">
+      <EntityTypeMapping TypeName="NetMarketDBModel.TipodePago">
+        <MappingFragment StoreEntitySet="TipodePago">
+          <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+          <ScalarProperty Name="nombreTipo" ColumnName="nombreTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPersona">
+      <EntityTypeMapping TypeName="NetMarketDBModel.TipoPersona">
+        <MappingFragment StoreEntitySet="TipoPersona">
+          <ScalarProperty Name="idTipoPersona" ColumnName="idTipoPersona" />
+          <ScalarProperty Name="nombreTipo" ColumnName="nombreTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresa">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="direccionCentral" ColumnName="direccionCentral" />
+          <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+          <ScalarProperty Name="nit" ColumnName="nit" />
+          <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Encargado">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Encargado">
+        <MappingFragment StoreEntitySet="Encargado">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="idSuperMercado" ColumnName="idSuperMercado" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Pedido">
+        <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="fechaPedido" ColumnName="fechaPedido" />
+          <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persona">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Persona">
+        <MappingFragment StoreEntitySet="Persona">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="CiPersona" ColumnName="CiPersona" />
+          <ScalarProperty Name="telefonoFijo" ColumnName="telefonoFijo" />
+          <ScalarProperty Name="telefonoMovilPersona" ColumnName="telefonoMovilPersona" />
+          <ScalarProperty Name="idTipoPersona" ColumnName="idTipoPersona" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="nombrePersona" ColumnName="nombrePersona" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="descripcionProducto" ColumnName="descripcionProducto" />
+          <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductoEmpresa">
+      <EntityTypeMapping TypeName="NetMarketDBModel.ProductoEmpresa">
+        <MappingFragment StoreEntitySet="ProductoEmpresa">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+          <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SolicitudPedido">
+      <EntityTypeMapping TypeName="NetMarketDBModel.SolicitudPedido">
+        <MappingFragment StoreEntitySet="SolicitudPedido">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="idSolicitudPedidoEstado" ColumnName="idSolicitudPedidoEstado" />
+          <ScalarProperty Name="montoPedido" ColumnName="montoPedido" />
+          <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
+          <ScalarProperty Name="idTipoEnvio" ColumnName="idTipoEnvio" />
+          <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+          <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+          <ScalarProperty Name="idSolicitudPedido" ColumnName="idSolicitudPedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleOferta">
+      <EntityTypeMapping TypeName="NetMarketDBModel.DetalleOferta">
+        <MappingFragment StoreEntitySet="DetalleOferta">
+          <ScalarProperty Name="CantidadProductosOferta" ColumnName="CantidadProductosOferta" />
+          <ScalarProperty Name="porcentajeDescuento" ColumnName="porcentajeDescuento" />
+          <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+          <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oferta">
+      <EntityTypeMapping TypeName="NetMarketDBModel.oferta">
+        <MappingFragment StoreEntitySet="oferta">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="fechaFinOferta" ColumnName="fechaFinOferta" />
+          <ScalarProperty Name="fechaInicioOferta" ColumnName="fechaInicioOferta" />
+          <ScalarProperty Name="descripcionOferta" ColumnName="descripcionOferta" />
+          <ScalarProperty Name="nombreOferta" ColumnName="nombreOferta" />
+          <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursal">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Sucursal">
+        <MappingFragment StoreEntitySet="Sucursal">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="OfertaSucursal" TypeName="NetMarketDBModel.OfertaSucursal" StoreEntitySet="OfertaSucursal">
+      <EndProperty Name="Sucursal">
+        <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+      </EndProperty>
+      <EndProperty Name="oferta">
+        <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="CategoriaProducto">
+      <EntityTypeMapping TypeName="NetMarketDBModel.CategoriaProducto">
+        <MappingFragment StoreEntitySet="CategoriaProducto">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductoSucursal">
+      <EntityTypeMapping TypeName="NetMarketDBModel.ProductoSucursal">
+        <MappingFragment StoreEntitySet="ProductoSucursal">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+          <ScalarProperty Name="idProductoSucursal" ColumnName="idProductoSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Destacados">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Destacados">
+        <MappingFragment StoreEntitySet="Destacados">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+          <ScalarProperty Name="idDestacado" ColumnName="idDestacado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleHorario">
+      <EntityTypeMapping TypeName="NetMarketDBModel.DetalleHorario">
+        <MappingFragment StoreEntitySet="DetalleHorario">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idDia" ColumnName="idDia" />
+          <ScalarProperty Name="idTurno" ColumnName="idTurno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dia">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Dia">
+        <MappingFragment StoreEntitySet="Dia">
+          <ScalarProperty Name="dia1" ColumnName="dia" />
+          <ScalarProperty Name="iddia" ColumnName="iddia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turno">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Turno">
+        <MappingFragment StoreEntitySet="Turno">
+          <ScalarProperty Name="cierre" ColumnName="cierre" />
+          <ScalarProperty Name="apertura" ColumnName="apertura" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="idTurno" ColumnName="idTurno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Imagen">
+      <EntityTypeMapping TypeName="NetMarketDBModel.Imagen">
+        <MappingFragment StoreEntitySet="Imagen">
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="Principal" ColumnName="Principal" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+          <ScalarProperty Name="idProductoSucursal" ColumnName="idProductoSucursal" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+          <ScalarProperty Name="rutaImagen" ColumnName="rutaImagen" />
+          <ScalarProperty Name="idImagen" ColumnName="idImagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

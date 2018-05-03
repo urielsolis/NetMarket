@@ -1,0 +1,1982 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NetMarketDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CategoriaProducto">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCategoria" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Destacados">
+          <Key>
+            <PropertyRef Name="idDestacado" />
+          </Key>
+          <Property Name="idDestacado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProducto" Type="bigint" Nullable="false" />
+          <Property Name="fechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="fechaFin" Type="datetime" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetalleHorario">
+          <Key>
+            <PropertyRef Name="idTurno" />
+            <PropertyRef Name="idDia" />
+          </Key>
+          <Property Name="idTurno" Type="bigint" Nullable="false" />
+          <Property Name="idDia" Type="bigint" Nullable="false" />
+          <Property Name="estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetalleOferta">
+          <Key>
+            <PropertyRef Name="idProductoEmpresa" />
+            <PropertyRef Name="idOferta" />
+          </Key>
+          <Property Name="idProductoEmpresa" Type="bigint" Nullable="false" />
+          <Property Name="idOferta" Type="bigint" Nullable="false" />
+          <Property Name="porcentajeDescuento" Type="int" />
+          <Property Name="CantidadProductosOferta" Type="int" />
+        </EntityType>
+        <EntityType Name="DetallePedido">
+          <Key>
+            <PropertyRef Name="idPedido" />
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idPedido" Type="bigint" Nullable="false" />
+          <Property Name="idProducto" Type="bigint" Nullable="false" />
+          <Property Name="cantidadProducto" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="iddia" />
+          </Key>
+          <Property Name="iddia" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dia" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreEmpresa" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="nit" Type="varchar(max)" Nullable="false" />
+          <Property Name="razonSocial" Type="varchar(max)" Nullable="false" />
+          <Property Name="direccionCentral" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Encargado">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="bigint" Nullable="false" />
+          <Property Name="cargo" Type="varchar" MaxLength="50" />
+          <Property Name="idSuperMercado" Type="bigint" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Imagen">
+          <Key>
+            <PropertyRef Name="idImagen" />
+          </Key>
+          <Property Name="idImagen" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rutaImagen" Type="varchar(max)" Nullable="false" />
+          <Property Name="idProducto" Type="bigint" />
+          <Property Name="idOferta" Type="bigint" />
+          <Property Name="idEmpresa" Type="bigint" />
+          <Property Name="idSucursal" Type="bigint" />
+          <Property Name="idProductoSucursal" Type="bigint" />
+          <Property Name="idProductoEmpresa" Type="bigint" />
+          <Property Name="idPersona" Type="bigint" />
+          <Property Name="idCategoria" Type="bigint" />
+          <Property Name="Principal" Type="bit" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oferta">
+          <Key>
+            <PropertyRef Name="idOferta" />
+          </Key>
+          <Property Name="idOferta" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreOferta" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="descripcionOferta" Type="varchar" MaxLength="300" />
+          <Property Name="fechaInicioOferta" Type="datetime" Nullable="false" />
+          <Property Name="fechaFinOferta" Type="bigint" Nullable="false" />
+          <Property Name="idEmpresa" Type="bigint" />
+          <Property Name="idSucursal" Type="bigint" />
+          <Property Name="idProductoEmpresa" Type="bigint" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OfertaSucursal">
+          <Key>
+            <PropertyRef Name="idOferta" />
+            <PropertyRef Name="idSucursal" />
+          </Key>
+          <Property Name="idOferta" Type="bigint" Nullable="false" />
+          <Property Name="idSucursal" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="idPedido" />
+          </Key>
+          <Property Name="idPedido" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaPedido" Type="datetime" Nullable="false" />
+          <Property Name="idUsuario" Type="bigint" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombrePersona" Type="varchar" MaxLength="300" />
+          <Property Name="apellidos" Type="varchar" MaxLength="300" />
+          <Property Name="fechaNacimiento" Type="datetime" />
+          <Property Name="contraseña" Type="varchar(max)" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="idTipoPersona" Type="bigint" Nullable="false" />
+          <Property Name="telefonoMovilPersona" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefonoFijo" Type="varchar" MaxLength="100" />
+          <Property Name="CiPersona" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreProducto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="descripcionProducto" Type="varchar(max)" Nullable="false" />
+          <Property Name="idCategoria" Type="bigint" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductoEmpresa">
+          <Key>
+            <PropertyRef Name="idProductoEmpresa" />
+          </Key>
+          <Property Name="idProductoEmpresa" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProducto" Type="bigint" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="idEmpresa" Type="bigint" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductoSucursal">
+          <Key>
+            <PropertyRef Name="idProductoSucursal" />
+          </Key>
+          <Property Name="idProductoSucursal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idProductoEmpresa" Type="bigint" Nullable="false" />
+          <Property Name="idSucursal" Type="bigint" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Stock" Type="int" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SeguimientoSolicitudPedido">
+          <Key>
+            <PropertyRef Name="idSeguimientoSolicitudPedido" />
+          </Key>
+          <Property Name="idSeguimientoSolicitudPedido" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaHoraModificacion" Type="datetime" Nullable="false" />
+          <Property Name="nuevoIdEstado" Type="bigint" />
+          <Property Name="idSolicitudPedido" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SolicitudPedido">
+          <Key>
+            <PropertyRef Name="idSolicitudPedido" />
+          </Key>
+          <Property Name="idSolicitudPedido" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPedido" Type="bigint" />
+          <Property Name="idTipoPago" Type="bigint" Nullable="false" />
+          <Property Name="idTipoEnvio" Type="bigint" Nullable="false" />
+          <Property Name="fechaSolicitud" Type="datetime" Nullable="false" />
+          <Property Name="montoPedido" Type="int" Nullable="false" />
+          <Property Name="idSolicitudPedidoEstado" Type="bigint" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SolicitudPedidoEstado">
+          <Key>
+            <PropertyRef Name="idSolicitudPedidoEstado" />
+          </Key>
+          <Property Name="idSolicitudPedidoEstado" Type="bigint" Nullable="false" />
+          <Property Name="nombreSolicitudPedidoEstado" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="idSucursal" />
+          </Key>
+          <Property Name="idSucursal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreSucursal" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="idEmpresa" Type="bigint" Nullable="false" />
+          <Property Name="eliminado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipodeEnvio">
+          <Key>
+            <PropertyRef Name="idTipoEnvio" />
+          </Key>
+          <Property Name="idTipoEnvio" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreTipoEnvio" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipodePago">
+          <Key>
+            <PropertyRef Name="idTipoPago" />
+          </Key>
+          <Property Name="idTipoPago" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreTipo" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoPersona">
+          <Key>
+            <PropertyRef Name="idTipoPersona" />
+          </Key>
+          <Property Name="idTipoPersona" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreTipo" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Turno">
+          <Key>
+            <PropertyRef Name="idTurno" />
+          </Key>
+          <Property Name="idTurno" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSucursal" Type="bigint" Nullable="false" />
+          <Property Name="apertura" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="cierre" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Destacados_ProductoEmpresa">
+          <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="1" />
+          <End Role="Destacados" Type="Self.Destacados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoEmpresa">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Principal>
+            <Dependent Role="Destacados">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleHorario_Dia">
+          <End Role="Dia" Type="Self.Dia" Multiplicity="1" />
+          <End Role="DetalleHorario" Type="Self.DetalleHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dia">
+              <PropertyRef Name="iddia" />
+            </Principal>
+            <Dependent Role="DetalleHorario">
+              <PropertyRef Name="idDia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleHorario_Turno">
+          <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+          <End Role="DetalleHorario" Type="Self.DetalleHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turno">
+              <PropertyRef Name="idTurno" />
+            </Principal>
+            <Dependent Role="DetalleHorario">
+              <PropertyRef Name="idTurno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleOferta_oferta">
+          <End Role="oferta" Type="Self.oferta" Multiplicity="1" />
+          <End Role="DetalleOferta" Type="Self.DetalleOferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oferta">
+              <PropertyRef Name="idOferta" />
+            </Principal>
+            <Dependent Role="DetalleOferta">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleOferta_ProductoSucursal">
+          <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="1" />
+          <End Role="DetalleOferta" Type="Self.DetalleOferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoSucursal">
+              <PropertyRef Name="idProductoSucursal" />
+            </Principal>
+            <Dependent Role="DetalleOferta">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+          <End Role="DetallePedido" Type="Self.DetallePedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="idPedido" />
+            </Principal>
+            <Dependent Role="DetallePedido">
+              <PropertyRef Name="idPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_ProductoSucursal">
+          <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="1" />
+          <End Role="DetallePedido" Type="Self.DetallePedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoSucursal">
+              <PropertyRef Name="idProductoSucursal" />
+            </Principal>
+            <Dependent Role="DetallePedido">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Encargado_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Encargado" Type="Self.Encargado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Encargado">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Encargado_Supermercado">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Encargado" Type="Self.Encargado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Encargado">
+              <PropertyRef Name="idSuperMercado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Galeria_oferta">
+          <End Role="oferta" Type="Self.oferta" Multiplicity="0..1" />
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oferta">
+              <PropertyRef Name="idOferta" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idOferta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Galeria_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Galeria_Supermercado">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_CategoriaProducto">
+          <End Role="CategoriaProducto" Type="Self.CategoriaProducto" Multiplicity="0..1" />
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaProducto">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_ProductoEmpresa">
+          <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="0..1" />
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoEmpresa">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_ProductoSucursal">
+          <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="0..1" />
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoSucursal">
+              <PropertyRef Name="idProductoSucursal" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idProductoSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="idSucursal" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_oferta_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="oferta" Type="Self.oferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="oferta">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfertaSucursal_oferta">
+          <End Role="oferta" Type="Self.oferta" Multiplicity="1" />
+          <End Role="OfertaSucursal" Type="Self.OfertaSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oferta">
+              <PropertyRef Name="idOferta" />
+            </Principal>
+            <Dependent Role="OfertaSucursal">
+              <PropertyRef Name="idOferta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OfertaSucursal_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="OfertaSucursal" Type="Self.OfertaSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="idSucursal" />
+            </Principal>
+            <Dependent Role="OfertaSucursal">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Persona">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Persona_TipoPersona">
+          <End Role="TipoPersona" Type="Self.TipoPersona" Multiplicity="1" />
+          <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPersona">
+              <PropertyRef Name="idTipoPersona" />
+            </Principal>
+            <Dependent Role="Persona">
+              <PropertyRef Name="idTipoPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_CategoriaProducto">
+          <End Role="CategoriaProducto" Type="Self.CategoriaProducto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaProducto">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoEmpresa_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="ProductoEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoEmpresa_Producto">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="ProductoEmpresa">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoSucursal_ProductoEmpresa">
+          <End Role="ProductoEmpresa" Type="Self.ProductoEmpresa" Multiplicity="1" />
+          <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoEmpresa">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Principal>
+            <Dependent Role="ProductoSucursal">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoSucursal_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="idSucursal" />
+            </Principal>
+            <Dependent Role="ProductoSucursal">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_seguimientoSolicitudPedido_SolicitudPedido">
+          <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="1" />
+          <End Role="SeguimientoSolicitudPedido" Type="Self.SeguimientoSolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudPedido">
+              <PropertyRef Name="idSolicitudPedido" />
+            </Principal>
+            <Dependent Role="SeguimientoSolicitudPedido">
+              <PropertyRef Name="idSolicitudPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_seguimientoSolicitudPedido_SolicitudPedidoEstado">
+          <End Role="SolicitudPedidoEstado" Type="Self.SolicitudPedidoEstado" Multiplicity="0..1" />
+          <End Role="SeguimientoSolicitudPedido" Type="Self.SeguimientoSolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudPedidoEstado">
+              <PropertyRef Name="idSolicitudPedidoEstado" />
+            </Principal>
+            <Dependent Role="SeguimientoSolicitudPedido">
+              <PropertyRef Name="nuevoIdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudPedido_Pedido">
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="0..1" />
+          <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="idPedido" />
+            </Principal>
+            <Dependent Role="SolicitudPedido">
+              <PropertyRef Name="idPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudPedido_SolicitudPedidoEstado">
+          <End Role="SolicitudPedidoEstado" Type="Self.SolicitudPedidoEstado" Multiplicity="1" />
+          <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudPedidoEstado">
+              <PropertyRef Name="idSolicitudPedidoEstado" />
+            </Principal>
+            <Dependent Role="SolicitudPedido">
+              <PropertyRef Name="idSolicitudPedidoEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudPedido_TipodeEnvio">
+          <End Role="TipodeEnvio" Type="Self.TipodeEnvio" Multiplicity="1" />
+          <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipodeEnvio">
+              <PropertyRef Name="idTipoEnvio" />
+            </Principal>
+            <Dependent Role="SolicitudPedido">
+              <PropertyRef Name="idTipoEnvio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudPedido_TipodePago">
+          <End Role="TipodePago" Type="Self.TipodePago" Multiplicity="1" />
+          <End Role="SolicitudPedido" Type="Self.SolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipodePago">
+              <PropertyRef Name="idTipoPago" />
+            </Principal>
+            <Dependent Role="SolicitudPedido">
+              <PropertyRef Name="idTipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sucursal_Supermercado">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Sucursal">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Turno_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="idSucursal" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NetMarketDBModelStoreContainer">
+          <EntitySet Name="CategoriaProducto" EntityType="Self.CategoriaProducto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Destacados" EntityType="Self.Destacados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleHorario" EntityType="Self.DetalleHorario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleOferta" EntityType="Self.DetalleOferta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetallePedido" EntityType="Self.DetallePedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dia" EntityType="Self.Dia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Encargado" EntityType="Self.Encargado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imagen" EntityType="Self.Imagen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="oferta" EntityType="Self.oferta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfertaSucursal" EntityType="Self.OfertaSucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductoEmpresa" EntityType="Self.ProductoEmpresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductoSucursal" EntityType="Self.ProductoSucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeguimientoSolicitudPedido" EntityType="Self.SeguimientoSolicitudPedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SolicitudPedido" EntityType="Self.SolicitudPedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SolicitudPedidoEstado" EntityType="Self.SolicitudPedidoEstado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipodeEnvio" EntityType="Self.TipodeEnvio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipodePago" EntityType="Self.TipodePago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPersona" EntityType="Self.TipoPersona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Destacados_ProductoEmpresa" Association="Self.FK_Destacados_ProductoEmpresa">
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+            <End Role="Destacados" EntitySet="Destacados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleHorario_Dia" Association="Self.FK_DetalleHorario_Dia">
+            <End Role="Dia" EntitySet="Dia" />
+            <End Role="DetalleHorario" EntitySet="DetalleHorario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleHorario_Turno" Association="Self.FK_DetalleHorario_Turno">
+            <End Role="Turno" EntitySet="Turno" />
+            <End Role="DetalleHorario" EntitySet="DetalleHorario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleOferta_oferta" Association="Self.FK_DetalleOferta_oferta">
+            <End Role="oferta" EntitySet="oferta" />
+            <End Role="DetalleOferta" EntitySet="DetalleOferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleOferta_ProductoSucursal" Association="Self.FK_DetalleOferta_ProductoSucursal">
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+            <End Role="DetalleOferta" EntitySet="DetalleOferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_Pedido" Association="Self.FK_DetallePedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="DetallePedido" EntitySet="DetallePedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_ProductoSucursal" Association="Self.FK_DetallePedido_ProductoSucursal">
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+            <End Role="DetallePedido" EntitySet="DetallePedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Encargado_Persona" Association="Self.FK_Encargado_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Encargado" EntitySet="Encargado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Encargado_Supermercado" Association="Self.FK_Encargado_Supermercado">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Encargado" EntitySet="Encargado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Galeria_oferta" Association="Self.FK_Galeria_oferta">
+            <End Role="oferta" EntitySet="oferta" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Galeria_Producto" Association="Self.FK_Galeria_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Galeria_Supermercado" Association="Self.FK_Galeria_Supermercado">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_CategoriaProducto" Association="Self.FK_Imagen_CategoriaProducto">
+            <End Role="CategoriaProducto" EntitySet="CategoriaProducto" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_Persona" Association="Self.FK_Imagen_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_ProductoEmpresa" Association="Self.FK_Imagen_ProductoEmpresa">
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_ProductoSucursal" Association="Self.FK_Imagen_ProductoSucursal">
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_Sucursal" Association="Self.FK_Imagen_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_oferta_Empresa" Association="Self.FK_oferta_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="oferta" EntitySet="oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfertaSucursal_oferta" Association="Self.FK_OfertaSucursal_oferta">
+            <End Role="oferta" EntitySet="oferta" />
+            <End Role="OfertaSucursal" EntitySet="OfertaSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OfertaSucursal_Sucursal" Association="Self.FK_OfertaSucursal_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="OfertaSucursal" EntitySet="OfertaSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Persona" Association="Self.FK_Pedido_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Persona_TipoPersona" Association="Self.FK_Persona_TipoPersona">
+            <End Role="TipoPersona" EntitySet="TipoPersona" />
+            <End Role="Persona" EntitySet="Persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_CategoriaProducto" Association="Self.FK_Producto_CategoriaProducto">
+            <End Role="CategoriaProducto" EntitySet="CategoriaProducto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoEmpresa_Empresa" Association="Self.FK_ProductoEmpresa_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoEmpresa_Producto" Association="Self.FK_ProductoEmpresa_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoSucursal_ProductoEmpresa" Association="Self.FK_ProductoSucursal_ProductoEmpresa">
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoSucursal_Sucursal" Association="Self.FK_ProductoSucursal_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_seguimientoSolicitudPedido_SolicitudPedido" Association="Self.FK_seguimientoSolicitudPedido_SolicitudPedido">
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+            <End Role="SeguimientoSolicitudPedido" EntitySet="SeguimientoSolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_seguimientoSolicitudPedido_SolicitudPedidoEstado" Association="Self.FK_seguimientoSolicitudPedido_SolicitudPedidoEstado">
+            <End Role="SolicitudPedidoEstado" EntitySet="SolicitudPedidoEstado" />
+            <End Role="SeguimientoSolicitudPedido" EntitySet="SeguimientoSolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudPedido_Pedido" Association="Self.FK_SolicitudPedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudPedido_SolicitudPedidoEstado" Association="Self.FK_SolicitudPedido_SolicitudPedidoEstado">
+            <End Role="SolicitudPedidoEstado" EntitySet="SolicitudPedidoEstado" />
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudPedido_TipodeEnvio" Association="Self.FK_SolicitudPedido_TipodeEnvio">
+            <End Role="TipodeEnvio" EntitySet="TipodeEnvio" />
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudPedido_TipodePago" Association="Self.FK_SolicitudPedido_TipodePago">
+            <End Role="TipodePago" EntitySet="TipodePago" />
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sucursal_Supermercado" Association="Self.FK_Sucursal_Supermercado">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Sucursal" EntitySet="Sucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turno_Sucursal" Association="Self.FK_Turno_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NetMarketDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DetallePedido">
+          <Key>
+            <PropertyRef Name="idPedido" />
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idPedido" Type="Int64" Nullable="false" />
+          <Property Name="idProducto" Type="Int64" Nullable="false" />
+          <Property Name="cantidadProducto" Type="Int64" />
+          <NavigationProperty Name="Pedido" Relationship="NetMarketDBModel.FK_DetallePedido_Pedido" FromRole="DetallePedido" ToRole="Pedido" />
+          <NavigationProperty Name="ProductoSucursal" Relationship="NetMarketDBModel.FK_DetallePedido_ProductoSucursal" FromRole="DetallePedido" ToRole="ProductoSucursal" />
+        </EntityType>
+        <EntityType Name="SeguimientoSolicitudPedido">
+          <Key>
+            <PropertyRef Name="idSeguimientoSolicitudPedido" />
+          </Key>
+          <Property Name="idSeguimientoSolicitudPedido" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaHoraModificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="nuevoIdEstado" Type="Int64" />
+          <Property Name="idSolicitudPedido" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="SolicitudPedidoEstado" Relationship="Self.FK_seguimientoSolicitudPedido_SolicitudPedidoEstado" FromRole="SeguimientoSolicitudPedido" ToRole="SolicitudPedidoEstado" />
+          <NavigationProperty Name="SolicitudPedido" Relationship="NetMarketDBModel.FK_seguimientoSolicitudPedido_SolicitudPedido" FromRole="SeguimientoSolicitudPedido" ToRole="SolicitudPedido" />
+        </EntityType>
+        <EntityType Name="SolicitudPedidoEstado">
+          <Key>
+            <PropertyRef Name="idSolicitudPedidoEstado" />
+          </Key>
+          <Property Name="idSolicitudPedidoEstado" Type="Int64" Nullable="false" />
+          <Property Name="nombreSolicitudPedidoEstado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SeguimientoSolicitudPedido" Relationship="Self.FK_seguimientoSolicitudPedido_SolicitudPedidoEstado" FromRole="SolicitudPedidoEstado" ToRole="SeguimientoSolicitudPedido" />
+          <NavigationProperty Name="SolicitudPedido" Relationship="NetMarketDBModel.FK_SolicitudPedido_SolicitudPedidoEstado" FromRole="SolicitudPedidoEstado" ToRole="SolicitudPedido" />
+        </EntityType>
+        <EntityType Name="TipodeEnvio">
+          <Key>
+            <PropertyRef Name="idTipoEnvio" />
+          </Key>
+          <Property Name="idTipoEnvio" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipoEnvio" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="SolicitudPedido" Relationship="NetMarketDBModel.FK_SolicitudPedido_TipodeEnvio" FromRole="TipodeEnvio" ToRole="SolicitudPedido" />
+        </EntityType>
+        <EntityType Name="TipodePago">
+          <Key>
+            <PropertyRef Name="idTipoPago" />
+          </Key>
+          <Property Name="idTipoPago" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SolicitudPedido" Relationship="NetMarketDBModel.FK_SolicitudPedido_TipodePago" FromRole="TipodePago" ToRole="SolicitudPedido" />
+        </EntityType>
+        <EntityType Name="TipoPersona">
+          <Key>
+            <PropertyRef Name="idTipoPersona" />
+          </Key>
+          <Property Name="idTipoPersona" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreTipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Persona" Relationship="NetMarketDBModel.FK_Persona_TipoPersona" FromRole="TipoPersona" ToRole="Persona" />
+        </EntityType>
+        <Association Name="FK_seguimientoSolicitudPedido_SolicitudPedidoEstado">
+          <End Role="SolicitudPedidoEstado" Type="Self.SolicitudPedidoEstado" Multiplicity="0..1" />
+          <End Role="SeguimientoSolicitudPedido" Type="Self.SeguimientoSolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudPedidoEstado">
+              <PropertyRef Name="idSolicitudPedidoEstado" />
+            </Principal>
+            <Dependent Role="SeguimientoSolicitudPedido">
+              <PropertyRef Name="nuevoIdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NetMarketDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DetallePedido" EntityType="Self.DetallePedido" />
+          <EntitySet Name="SeguimientoSolicitudPedido" EntityType="Self.SeguimientoSolicitudPedido" />
+          <EntitySet Name="SolicitudPedidoEstado" EntityType="Self.SolicitudPedidoEstado" />
+          <EntitySet Name="TipodeEnvio" EntityType="Self.TipodeEnvio" />
+          <EntitySet Name="TipodePago" EntityType="Self.TipodePago" />
+          <EntitySet Name="TipoPersona" EntityType="Self.TipoPersona" />
+          <AssociationSet Name="FK_seguimientoSolicitudPedido_SolicitudPedidoEstado" Association="Self.FK_seguimientoSolicitudPedido_SolicitudPedidoEstado">
+            <End Role="SolicitudPedidoEstado" EntitySet="SolicitudPedidoEstado" />
+            <End Role="SeguimientoSolicitudPedido" EntitySet="SeguimientoSolicitudPedido" />
+          </AssociationSet>
+          <EntitySet Name="Empresa" EntityType="NetMarketDBModel.Empresa" />
+          <EntitySet Name="Encargado" EntityType="NetMarketDBModel.Encargado" />
+          <EntitySet Name="Pedido" EntityType="NetMarketDBModel.Pedido" />
+          <EntitySet Name="Persona" EntityType="NetMarketDBModel.Persona" />
+          <EntitySet Name="Producto" EntityType="NetMarketDBModel.Producto" />
+          <EntitySet Name="ProductoEmpresa" EntityType="NetMarketDBModel.ProductoEmpresa" />
+          <EntitySet Name="SolicitudPedido" EntityType="NetMarketDBModel.SolicitudPedido" />
+          <AssociationSet Name="FK_DetallePedido_Pedido" Association="NetMarketDBModel.FK_DetallePedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="DetallePedido" EntitySet="DetallePedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Encargado_Supermercado" Association="NetMarketDBModel.FK_Encargado_Supermercado">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Encargado" EntitySet="Encargado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoEmpresa_Empresa" Association="NetMarketDBModel.FK_ProductoEmpresa_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Encargado_Persona" Association="NetMarketDBModel.FK_Encargado_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Encargado" EntitySet="Encargado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Persona" Association="NetMarketDBModel.FK_Pedido_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudPedido_Pedido" Association="NetMarketDBModel.FK_SolicitudPedido_Pedido">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Persona_TipoPersona" Association="NetMarketDBModel.FK_Persona_TipoPersona">
+            <End Role="TipoPersona" EntitySet="TipoPersona" />
+            <End Role="Persona" EntitySet="Persona" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoEmpresa_Producto" Association="NetMarketDBModel.FK_ProductoEmpresa_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_seguimientoSolicitudPedido_SolicitudPedido" Association="NetMarketDBModel.FK_seguimientoSolicitudPedido_SolicitudPedido">
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+            <End Role="SeguimientoSolicitudPedido" EntitySet="SeguimientoSolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudPedido_SolicitudPedidoEstado" Association="NetMarketDBModel.FK_SolicitudPedido_SolicitudPedidoEstado">
+            <End Role="SolicitudPedidoEstado" EntitySet="SolicitudPedidoEstado" />
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudPedido_TipodeEnvio" Association="NetMarketDBModel.FK_SolicitudPedido_TipodeEnvio">
+            <End Role="TipodeEnvio" EntitySet="TipodeEnvio" />
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SolicitudPedido_TipodePago" Association="NetMarketDBModel.FK_SolicitudPedido_TipodePago">
+            <End Role="TipodePago" EntitySet="TipodePago" />
+            <End Role="SolicitudPedido" EntitySet="SolicitudPedido" />
+          </AssociationSet>
+          <EntitySet Name="DetalleOferta" EntityType="NetMarketDBModel.DetalleOferta" />
+          <EntitySet Name="oferta" EntityType="NetMarketDBModel.oferta" />
+          <EntitySet Name="Sucursal" EntityType="NetMarketDBModel.Sucursal" />
+          <AssociationSet Name="FK_DetalleOferta_oferta" Association="NetMarketDBModel.FK_DetalleOferta_oferta">
+            <End Role="oferta" EntitySet="oferta" />
+            <End Role="DetalleOferta" EntitySet="DetalleOferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_oferta_Empresa" Association="NetMarketDBModel.FK_oferta_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="oferta" EntitySet="oferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sucursal_Supermercado" Association="NetMarketDBModel.FK_Sucursal_Supermercado">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Sucursal" EntitySet="Sucursal" />
+          </AssociationSet>
+          <AssociationSet Name="OfertaSucursal" Association="NetMarketDBModel.OfertaSucursal">
+            <End Role="oferta" EntitySet="oferta" />
+            <End Role="Sucursal" EntitySet="Sucursal" />
+          </AssociationSet>
+          <EntitySet Name="CategoriaProducto" EntityType="NetMarketDBModel.CategoriaProducto" />
+          <AssociationSet Name="FK_Producto_CategoriaProducto" Association="NetMarketDBModel.FK_Producto_CategoriaProducto">
+            <End Role="CategoriaProducto" EntitySet="CategoriaProducto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <EntitySet Name="ProductoSucursal" EntityType="NetMarketDBModel.ProductoSucursal" />
+          <AssociationSet Name="FK_DetalleOferta_ProductoSucursal" Association="NetMarketDBModel.FK_DetalleOferta_ProductoSucursal">
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+            <End Role="DetalleOferta" EntitySet="DetalleOferta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetallePedido_ProductoSucursal" Association="NetMarketDBModel.FK_DetallePedido_ProductoSucursal">
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+            <End Role="DetallePedido" EntitySet="DetallePedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoSucursal_ProductoEmpresa" Association="NetMarketDBModel.FK_ProductoSucursal_ProductoEmpresa">
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoSucursal_Sucursal" Association="NetMarketDBModel.FK_ProductoSucursal_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+          </AssociationSet>
+          <EntitySet Name="Destacados" EntityType="NetMarketDBModel.Destacados" />
+          <AssociationSet Name="FK_Destacados_ProductoEmpresa" Association="NetMarketDBModel.FK_Destacados_ProductoEmpresa">
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+            <End Role="Destacados" EntitySet="Destacados" />
+          </AssociationSet>
+          <EntitySet Name="DetalleHorario" EntityType="NetMarketDBModel.DetalleHorario" />
+          <EntitySet Name="Dia" EntityType="NetMarketDBModel.Dia" />
+          <EntitySet Name="Turno" EntityType="NetMarketDBModel.Turno" />
+          <AssociationSet Name="FK_DetalleHorario_Dia" Association="NetMarketDBModel.FK_DetalleHorario_Dia">
+            <End Role="Dia" EntitySet="Dia" />
+            <End Role="DetalleHorario" EntitySet="DetalleHorario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetalleHorario_Turno" Association="NetMarketDBModel.FK_DetalleHorario_Turno">
+            <End Role="Turno" EntitySet="Turno" />
+            <End Role="DetalleHorario" EntitySet="DetalleHorario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turno_Sucursal" Association="NetMarketDBModel.FK_Turno_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
+          <EntitySet Name="Imagen" EntityType="NetMarketDBModel.Imagen" />
+          <AssociationSet Name="FK_Imagen_CategoriaProducto" Association="NetMarketDBModel.FK_Imagen_CategoriaProducto">
+            <End Role="CategoriaProducto" EntitySet="CategoriaProducto" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Galeria_Supermercado" Association="NetMarketDBModel.FK_Galeria_Supermercado">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Galeria_oferta" Association="NetMarketDBModel.FK_Galeria_oferta">
+            <End Role="oferta" EntitySet="oferta" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Galeria_Producto" Association="NetMarketDBModel.FK_Galeria_Producto">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_Persona" Association="NetMarketDBModel.FK_Imagen_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_ProductoEmpresa" Association="NetMarketDBModel.FK_Imagen_ProductoEmpresa">
+            <End Role="ProductoEmpresa" EntitySet="ProductoEmpresa" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_ProductoSucursal" Association="NetMarketDBModel.FK_Imagen_ProductoSucursal">
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen_Sucursal" Association="NetMarketDBModel.FK_Imagen_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Imagen" EntitySet="Imagen" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEmpresa" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="nit" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="razonSocial" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="direccionCentral" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Encargado" Relationship="NetMarketDBModel.FK_Encargado_Supermercado" FromRole="Empresa" ToRole="Encargado" />
+          <NavigationProperty Name="ProductoEmpresa" Relationship="NetMarketDBModel.FK_ProductoEmpresa_Empresa" FromRole="Empresa" ToRole="ProductoEmpresa" />
+          <NavigationProperty Name="oferta" Relationship="NetMarketDBModel.FK_oferta_Empresa" FromRole="Empresa" ToRole="oferta" />
+          <NavigationProperty Name="Sucursal" Relationship="NetMarketDBModel.FK_Sucursal_Supermercado" FromRole="Empresa" ToRole="Sucursal" />
+          <NavigationProperty Name="Imagen" Relationship="NetMarketDBModel.FK_Galeria_Supermercado" FromRole="Empresa" ToRole="Imagen" />
+        </EntityType>
+        <EntityType Name="Encargado">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="Int64" Nullable="false" />
+          <Property Name="cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idSuperMercado" Type="Int64" Nullable="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Empresa" Relationship="NetMarketDBModel.FK_Encargado_Supermercado" FromRole="Encargado" ToRole="Empresa" />
+          <NavigationProperty Name="Persona" Relationship="NetMarketDBModel.FK_Encargado_Persona" FromRole="Encargado" ToRole="Persona" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="idPedido" />
+          </Key>
+          <Property Name="idPedido" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaPedido" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="idUsuario" Type="Int64" Nullable="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DetallePedido" Relationship="NetMarketDBModel.FK_DetallePedido_Pedido" FromRole="Pedido" ToRole="DetallePedido" />
+          <NavigationProperty Name="Persona" Relationship="NetMarketDBModel.FK_Pedido_Persona" FromRole="Pedido" ToRole="Persona" />
+          <NavigationProperty Name="SolicitudPedido" Relationship="NetMarketDBModel.FK_SolicitudPedido_Pedido" FromRole="Pedido" ToRole="SolicitudPedido" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="idPersona" />
+          </Key>
+          <Property Name="idPersona" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombrePersona" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="contraseña" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="idTipoPersona" Type="Int64" Nullable="false" />
+          <Property Name="telefonoMovilPersona" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefonoFijo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CiPersona" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Encargado" Relationship="NetMarketDBModel.FK_Encargado_Persona" FromRole="Persona" ToRole="Encargado" />
+          <NavigationProperty Name="Pedido" Relationship="NetMarketDBModel.FK_Pedido_Persona" FromRole="Persona" ToRole="Pedido" />
+          <NavigationProperty Name="TipoPersona" Relationship="NetMarketDBModel.FK_Persona_TipoPersona" FromRole="Persona" ToRole="TipoPersona" />
+          <NavigationProperty Name="Imagen" Relationship="NetMarketDBModel.FK_Imagen_Persona" FromRole="Persona" ToRole="Imagen" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="idProducto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreProducto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionProducto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idCategoria" Type="Int64" Nullable="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProductoEmpresa" Relationship="NetMarketDBModel.FK_ProductoEmpresa_Producto" FromRole="Producto" ToRole="ProductoEmpresa" />
+          <NavigationProperty Name="CategoriaProducto" Relationship="NetMarketDBModel.FK_Producto_CategoriaProducto" FromRole="Producto" ToRole="CategoriaProducto" />
+          <NavigationProperty Name="Imagen" Relationship="NetMarketDBModel.FK_Galeria_Producto" FromRole="Producto" ToRole="Imagen" />
+        </EntityType>
+        <EntityType Name="ProductoEmpresa">
+          <Key>
+            <PropertyRef Name="idProductoEmpresa" />
+          </Key>
+          <Property Name="idProductoEmpresa" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProducto" Type="Int64" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="idEmpresa" Type="Int64" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Empresa" Relationship="NetMarketDBModel.FK_ProductoEmpresa_Empresa" FromRole="ProductoEmpresa" ToRole="Empresa" />
+          <NavigationProperty Name="Producto" Relationship="NetMarketDBModel.FK_ProductoEmpresa_Producto" FromRole="ProductoEmpresa" ToRole="Producto" />
+          <NavigationProperty Name="ProductoSucursal" Relationship="NetMarketDBModel.FK_ProductoSucursal_ProductoEmpresa" FromRole="ProductoEmpresa" ToRole="ProductoSucursal" />
+          <NavigationProperty Name="Destacados" Relationship="NetMarketDBModel.FK_Destacados_ProductoEmpresa" FromRole="ProductoEmpresa" ToRole="Destacados" />
+          <NavigationProperty Name="Imagen" Relationship="NetMarketDBModel.FK_Imagen_ProductoEmpresa" FromRole="ProductoEmpresa" ToRole="Imagen" />
+        </EntityType>
+        <EntityType Name="SolicitudPedido">
+          <Key>
+            <PropertyRef Name="idSolicitudPedido" />
+          </Key>
+          <Property Name="idSolicitudPedido" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPedido" Type="Int64" />
+          <Property Name="idTipoPago" Type="Int64" Nullable="false" />
+          <Property Name="idTipoEnvio" Type="Int64" Nullable="false" />
+          <Property Name="fechaSolicitud" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="montoPedido" Type="Int32" Nullable="false" />
+          <Property Name="idSolicitudPedidoEstado" Type="Int64" Nullable="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pedido" Relationship="NetMarketDBModel.FK_SolicitudPedido_Pedido" FromRole="SolicitudPedido" ToRole="Pedido" />
+          <NavigationProperty Name="SeguimientoSolicitudPedido" Relationship="NetMarketDBModel.FK_seguimientoSolicitudPedido_SolicitudPedido" FromRole="SolicitudPedido" ToRole="SeguimientoSolicitudPedido" />
+          <NavigationProperty Name="SolicitudPedidoEstado" Relationship="NetMarketDBModel.FK_SolicitudPedido_SolicitudPedidoEstado" FromRole="SolicitudPedido" ToRole="SolicitudPedidoEstado" />
+          <NavigationProperty Name="TipodeEnvio" Relationship="NetMarketDBModel.FK_SolicitudPedido_TipodeEnvio" FromRole="SolicitudPedido" ToRole="TipodeEnvio" />
+          <NavigationProperty Name="TipodePago" Relationship="NetMarketDBModel.FK_SolicitudPedido_TipodePago" FromRole="SolicitudPedido" ToRole="TipodePago" />
+        </EntityType>
+        <Association Name="FK_DetallePedido_Pedido">
+          <End Type="NetMarketDBModel.Pedido" Role="Pedido" Multiplicity="1" />
+          <End Type="NetMarketDBModel.DetallePedido" Role="DetallePedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="idPedido" />
+            </Principal>
+            <Dependent Role="DetallePedido">
+              <PropertyRef Name="idPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Encargado_Supermercado">
+          <End Type="NetMarketDBModel.Empresa" Role="Empresa" Multiplicity="1" />
+          <End Type="NetMarketDBModel.Encargado" Role="Encargado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Encargado">
+              <PropertyRef Name="idSuperMercado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoEmpresa_Empresa">
+          <End Type="NetMarketDBModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.ProductoEmpresa" Role="ProductoEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="ProductoEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Encargado_Persona">
+          <End Type="NetMarketDBModel.Persona" Role="Persona" Multiplicity="1" />
+          <End Type="NetMarketDBModel.Encargado" Role="Encargado" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Encargado">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Persona">
+          <End Type="NetMarketDBModel.Persona" Role="Persona" Multiplicity="1" />
+          <End Type="NetMarketDBModel.Pedido" Role="Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudPedido_Pedido">
+          <End Type="NetMarketDBModel.Pedido" Role="Pedido" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.SolicitudPedido" Role="SolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="idPedido" />
+            </Principal>
+            <Dependent Role="SolicitudPedido">
+              <PropertyRef Name="idPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Persona_TipoPersona">
+          <End Type="NetMarketDBModel.TipoPersona" Role="TipoPersona" Multiplicity="1" />
+          <End Type="NetMarketDBModel.Persona" Role="Persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPersona">
+              <PropertyRef Name="idTipoPersona" />
+            </Principal>
+            <Dependent Role="Persona">
+              <PropertyRef Name="idTipoPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoEmpresa_Producto">
+          <End Type="NetMarketDBModel.Producto" Role="Producto" Multiplicity="1" />
+          <End Type="NetMarketDBModel.ProductoEmpresa" Role="ProductoEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="ProductoEmpresa">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_seguimientoSolicitudPedido_SolicitudPedido">
+          <End Type="NetMarketDBModel.SolicitudPedido" Role="SolicitudPedido" Multiplicity="1" />
+          <End Type="NetMarketDBModel.SeguimientoSolicitudPedido" Role="SeguimientoSolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudPedido">
+              <PropertyRef Name="idSolicitudPedido" />
+            </Principal>
+            <Dependent Role="SeguimientoSolicitudPedido">
+              <PropertyRef Name="idSolicitudPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudPedido_SolicitudPedidoEstado">
+          <End Type="NetMarketDBModel.SolicitudPedidoEstado" Role="SolicitudPedidoEstado" Multiplicity="1" />
+          <End Type="NetMarketDBModel.SolicitudPedido" Role="SolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudPedidoEstado">
+              <PropertyRef Name="idSolicitudPedidoEstado" />
+            </Principal>
+            <Dependent Role="SolicitudPedido">
+              <PropertyRef Name="idSolicitudPedidoEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudPedido_TipodeEnvio">
+          <End Type="NetMarketDBModel.TipodeEnvio" Role="TipodeEnvio" Multiplicity="1" />
+          <End Type="NetMarketDBModel.SolicitudPedido" Role="SolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipodeEnvio">
+              <PropertyRef Name="idTipoEnvio" />
+            </Principal>
+            <Dependent Role="SolicitudPedido">
+              <PropertyRef Name="idTipoEnvio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SolicitudPedido_TipodePago">
+          <End Type="NetMarketDBModel.TipodePago" Role="TipodePago" Multiplicity="1" />
+          <End Type="NetMarketDBModel.SolicitudPedido" Role="SolicitudPedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipodePago">
+              <PropertyRef Name="idTipoPago" />
+            </Principal>
+            <Dependent Role="SolicitudPedido">
+              <PropertyRef Name="idTipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DetalleOferta">
+          <Key>
+            <PropertyRef Name="idProductoEmpresa" />
+            <PropertyRef Name="idOferta" />
+          </Key>
+          <Property Name="idProductoEmpresa" Type="Int64" Nullable="false" />
+          <Property Name="idOferta" Type="Int64" Nullable="false" />
+          <Property Name="porcentajeDescuento" Type="Int32" />
+          <Property Name="CantidadProductosOferta" Type="Int32" />
+          <NavigationProperty Name="oferta" Relationship="NetMarketDBModel.FK_DetalleOferta_oferta" FromRole="DetalleOferta" ToRole="oferta" />
+          <NavigationProperty Name="ProductoSucursal" Relationship="NetMarketDBModel.FK_DetalleOferta_ProductoSucursal" FromRole="DetalleOferta" ToRole="ProductoSucursal" />
+        </EntityType>
+        <EntityType Name="oferta">
+          <Key>
+            <PropertyRef Name="idOferta" />
+          </Key>
+          <Property Name="idOferta" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreOferta" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="descripcionOferta" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="fechaInicioOferta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaFinOferta" Type="Int64" Nullable="false" />
+          <Property Name="idEmpresa" Type="Int64" />
+          <Property Name="idSucursal" Type="Int64" />
+          <Property Name="idProductoEmpresa" Type="Int64" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DetalleOferta" Relationship="NetMarketDBModel.FK_DetalleOferta_oferta" FromRole="oferta" ToRole="DetalleOferta" />
+          <NavigationProperty Name="Empresa" Relationship="NetMarketDBModel.FK_oferta_Empresa" FromRole="oferta" ToRole="Empresa" />
+          <NavigationProperty Name="Sucursal" Relationship="NetMarketDBModel.OfertaSucursal" FromRole="oferta" ToRole="Sucursal" />
+          <NavigationProperty Name="Imagen" Relationship="NetMarketDBModel.FK_Galeria_oferta" FromRole="oferta" ToRole="Imagen" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="idSucursal" />
+          </Key>
+          <Property Name="idSucursal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreSucursal" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="idEmpresa" Type="Int64" Nullable="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Empresa" Relationship="NetMarketDBModel.FK_Sucursal_Supermercado" FromRole="Sucursal" ToRole="Empresa" />
+          <NavigationProperty Name="oferta" Relationship="NetMarketDBModel.OfertaSucursal" FromRole="Sucursal" ToRole="oferta" />
+          <NavigationProperty Name="ProductoSucursal" Relationship="NetMarketDBModel.FK_ProductoSucursal_Sucursal" FromRole="Sucursal" ToRole="ProductoSucursal" />
+          <NavigationProperty Name="Turno" Relationship="NetMarketDBModel.FK_Turno_Sucursal" FromRole="Sucursal" ToRole="Turno" />
+          <NavigationProperty Name="Imagen" Relationship="NetMarketDBModel.FK_Imagen_Sucursal" FromRole="Sucursal" ToRole="Imagen" />
+        </EntityType>
+        <Association Name="FK_DetalleOferta_oferta">
+          <End Type="NetMarketDBModel.oferta" Role="oferta" Multiplicity="1" />
+          <End Type="NetMarketDBModel.DetalleOferta" Role="DetalleOferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oferta">
+              <PropertyRef Name="idOferta" />
+            </Principal>
+            <Dependent Role="DetalleOferta">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_oferta_Empresa">
+          <End Type="NetMarketDBModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.oferta" Role="oferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="oferta">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sucursal_Supermercado">
+          <End Type="NetMarketDBModel.Empresa" Role="Empresa" Multiplicity="1" />
+          <End Type="NetMarketDBModel.Sucursal" Role="Sucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Sucursal">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OfertaSucursal">
+          <End Type="NetMarketDBModel.oferta" Role="oferta" Multiplicity="*" />
+          <End Type="NetMarketDBModel.Sucursal" Role="Sucursal" Multiplicity="*" />
+        </Association>
+        <EntityType Name="CategoriaProducto">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCategoria" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="NetMarketDBModel.FK_Producto_CategoriaProducto" FromRole="CategoriaProducto" ToRole="Producto" />
+          <NavigationProperty Name="Imagen" Relationship="NetMarketDBModel.FK_Imagen_CategoriaProducto" FromRole="CategoriaProducto" ToRole="Imagen" />
+        </EntityType>
+        <Association Name="FK_Producto_CategoriaProducto">
+          <End Type="NetMarketDBModel.CategoriaProducto" Role="CategoriaProducto" Multiplicity="1" />
+          <End Type="NetMarketDBModel.Producto" Role="Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaProducto">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProductoSucursal">
+          <Key>
+            <PropertyRef Name="idProductoSucursal" />
+          </Key>
+          <Property Name="idProductoSucursal" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProductoEmpresa" Type="Int64" Nullable="false" />
+          <Property Name="idSucursal" Type="Int64" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DetalleOferta" Relationship="NetMarketDBModel.FK_DetalleOferta_ProductoSucursal" FromRole="ProductoSucursal" ToRole="DetalleOferta" />
+          <NavigationProperty Name="DetallePedido" Relationship="NetMarketDBModel.FK_DetallePedido_ProductoSucursal" FromRole="ProductoSucursal" ToRole="DetallePedido" />
+          <NavigationProperty Name="ProductoEmpresa" Relationship="NetMarketDBModel.FK_ProductoSucursal_ProductoEmpresa" FromRole="ProductoSucursal" ToRole="ProductoEmpresa" />
+          <NavigationProperty Name="Sucursal" Relationship="NetMarketDBModel.FK_ProductoSucursal_Sucursal" FromRole="ProductoSucursal" ToRole="Sucursal" />
+          <NavigationProperty Name="Imagen" Relationship="NetMarketDBModel.FK_Imagen_ProductoSucursal" FromRole="ProductoSucursal" ToRole="Imagen" />
+        </EntityType>
+        <Association Name="FK_DetalleOferta_ProductoSucursal">
+          <End Type="NetMarketDBModel.ProductoSucursal" Role="ProductoSucursal" Multiplicity="1" />
+          <End Type="NetMarketDBModel.DetalleOferta" Role="DetalleOferta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoSucursal">
+              <PropertyRef Name="idProductoSucursal" />
+            </Principal>
+            <Dependent Role="DetalleOferta">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetallePedido_ProductoSucursal">
+          <End Type="NetMarketDBModel.ProductoSucursal" Role="ProductoSucursal" Multiplicity="1" />
+          <End Type="NetMarketDBModel.DetallePedido" Role="DetallePedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoSucursal">
+              <PropertyRef Name="idProductoSucursal" />
+            </Principal>
+            <Dependent Role="DetallePedido">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoSucursal_ProductoEmpresa">
+          <End Type="NetMarketDBModel.ProductoEmpresa" Role="ProductoEmpresa" Multiplicity="1" />
+          <End Type="NetMarketDBModel.ProductoSucursal" Role="ProductoSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoEmpresa">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Principal>
+            <Dependent Role="ProductoSucursal">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoSucursal_Sucursal">
+          <End Type="NetMarketDBModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="NetMarketDBModel.ProductoSucursal" Role="ProductoSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="idSucursal" />
+            </Principal>
+            <Dependent Role="ProductoSucursal">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Destacados">
+          <Key>
+            <PropertyRef Name="idDestacado" />
+          </Key>
+          <Property Name="idDestacado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProducto" Type="Int64" Nullable="false" />
+          <Property Name="fechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaFin" Type="DateTime" Precision="3" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProductoEmpresa" Relationship="NetMarketDBModel.FK_Destacados_ProductoEmpresa" FromRole="Destacados" ToRole="ProductoEmpresa" />
+        </EntityType>
+        <Association Name="FK_Destacados_ProductoEmpresa">
+          <End Type="NetMarketDBModel.ProductoEmpresa" Role="ProductoEmpresa" Multiplicity="1" />
+          <End Type="NetMarketDBModel.Destacados" Role="Destacados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoEmpresa">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Principal>
+            <Dependent Role="Destacados">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DetalleHorario">
+          <Key>
+            <PropertyRef Name="idTurno" />
+            <PropertyRef Name="idDia" />
+          </Key>
+          <Property Name="idTurno" Type="Int64" Nullable="false" />
+          <Property Name="idDia" Type="Int64" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Dia" Relationship="NetMarketDBModel.FK_DetalleHorario_Dia" FromRole="DetalleHorario" ToRole="Dia" />
+          <NavigationProperty Name="Turno" Relationship="NetMarketDBModel.FK_DetalleHorario_Turno" FromRole="DetalleHorario" ToRole="Turno" />
+        </EntityType>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="iddia" />
+          </Key>
+          <Property Name="iddia" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dia1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DetalleHorario" Relationship="NetMarketDBModel.FK_DetalleHorario_Dia" FromRole="Dia" ToRole="DetalleHorario" />
+        </EntityType>
+        <EntityType Name="Turno">
+          <Key>
+            <PropertyRef Name="idTurno" />
+          </Key>
+          <Property Name="idTurno" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSucursal" Type="Int64" Nullable="false" />
+          <Property Name="apertura" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="cierre" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DetalleHorario" Relationship="NetMarketDBModel.FK_DetalleHorario_Turno" FromRole="Turno" ToRole="DetalleHorario" />
+          <NavigationProperty Name="Sucursal" Relationship="NetMarketDBModel.FK_Turno_Sucursal" FromRole="Turno" ToRole="Sucursal" />
+        </EntityType>
+        <Association Name="FK_DetalleHorario_Dia">
+          <End Type="NetMarketDBModel.Dia" Role="Dia" Multiplicity="1" />
+          <End Type="NetMarketDBModel.DetalleHorario" Role="DetalleHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dia">
+              <PropertyRef Name="iddia" />
+            </Principal>
+            <Dependent Role="DetalleHorario">
+              <PropertyRef Name="idDia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetalleHorario_Turno">
+          <End Type="NetMarketDBModel.Turno" Role="Turno" Multiplicity="1" />
+          <End Type="NetMarketDBModel.DetalleHorario" Role="DetalleHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turno">
+              <PropertyRef Name="idTurno" />
+            </Principal>
+            <Dependent Role="DetalleHorario">
+              <PropertyRef Name="idTurno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Turno_Sucursal">
+          <End Type="NetMarketDBModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="NetMarketDBModel.Turno" Role="Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="idSucursal" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Imagen">
+          <Key>
+            <PropertyRef Name="idImagen" />
+          </Key>
+          <Property Name="idImagen" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rutaImagen" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idProducto" Type="Int64" />
+          <Property Name="idOferta" Type="Int64" />
+          <Property Name="idEmpresa" Type="Int64" />
+          <Property Name="idSucursal" Type="Int64" />
+          <Property Name="idProductoSucursal" Type="Int64" />
+          <Property Name="idProductoEmpresa" Type="Int64" />
+          <Property Name="idPersona" Type="Int64" />
+          <Property Name="idCategoria" Type="Int64" />
+          <Property Name="Principal" Type="Boolean" Nullable="false" />
+          <Property Name="eliminado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CategoriaProducto" Relationship="NetMarketDBModel.FK_Imagen_CategoriaProducto" FromRole="Imagen" ToRole="CategoriaProducto" />
+          <NavigationProperty Name="Empresa" Relationship="NetMarketDBModel.FK_Galeria_Supermercado" FromRole="Imagen" ToRole="Empresa" />
+          <NavigationProperty Name="oferta" Relationship="NetMarketDBModel.FK_Galeria_oferta" FromRole="Imagen" ToRole="oferta" />
+          <NavigationProperty Name="Producto" Relationship="NetMarketDBModel.FK_Galeria_Producto" FromRole="Imagen" ToRole="Producto" />
+          <NavigationProperty Name="Persona" Relationship="NetMarketDBModel.FK_Imagen_Persona" FromRole="Imagen" ToRole="Persona" />
+          <NavigationProperty Name="ProductoEmpresa" Relationship="NetMarketDBModel.FK_Imagen_ProductoEmpresa" FromRole="Imagen" ToRole="ProductoEmpresa" />
+          <NavigationProperty Name="ProductoSucursal" Relationship="NetMarketDBModel.FK_Imagen_ProductoSucursal" FromRole="Imagen" ToRole="ProductoSucursal" />
+          <NavigationProperty Name="Sucursal" Relationship="NetMarketDBModel.FK_Imagen_Sucursal" FromRole="Imagen" ToRole="Sucursal" />
+        </EntityType>
+        <Association Name="FK_Imagen_CategoriaProducto">
+          <End Type="NetMarketDBModel.CategoriaProducto" Role="CategoriaProducto" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.Imagen" Role="Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaProducto">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Galeria_Supermercado">
+          <End Type="NetMarketDBModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.Imagen" Role="Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Galeria_oferta">
+          <End Type="NetMarketDBModel.oferta" Role="oferta" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.Imagen" Role="Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oferta">
+              <PropertyRef Name="idOferta" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idOferta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Galeria_Producto">
+          <End Type="NetMarketDBModel.Producto" Role="Producto" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.Imagen" Role="Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="idProducto" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_Persona">
+          <End Type="NetMarketDBModel.Persona" Role="Persona" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.Imagen" Role="Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="idPersona" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_ProductoEmpresa">
+          <End Type="NetMarketDBModel.ProductoEmpresa" Role="ProductoEmpresa" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.Imagen" Role="Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoEmpresa">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idProductoEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_ProductoSucursal">
+          <End Type="NetMarketDBModel.ProductoSucursal" Role="ProductoSucursal" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.Imagen" Role="Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductoSucursal">
+              <PropertyRef Name="idProductoSucursal" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idProductoSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen_Sucursal">
+          <End Type="NetMarketDBModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="NetMarketDBModel.Imagen" Role="Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="idSucursal" />
+            </Principal>
+            <Dependent Role="Imagen">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NetMarketDBModelStoreContainer" CdmEntityContainer="NetMarketDBEntities">
+          <EntitySetMapping Name="DetallePedido">
+            <EntityTypeMapping TypeName="NetMarketDBModel.DetallePedido">
+              <MappingFragment StoreEntitySet="DetallePedido">
+                <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="cantidadProducto" ColumnName="cantidadProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeguimientoSolicitudPedido">
+            <EntityTypeMapping TypeName="NetMarketDBModel.SeguimientoSolicitudPedido">
+              <MappingFragment StoreEntitySet="SeguimientoSolicitudPedido">
+                <ScalarProperty Name="idSeguimientoSolicitudPedido" ColumnName="idSeguimientoSolicitudPedido" />
+                <ScalarProperty Name="fechaHoraModificacion" ColumnName="fechaHoraModificacion" />
+                <ScalarProperty Name="nuevoIdEstado" ColumnName="nuevoIdEstado" />
+                <ScalarProperty Name="idSolicitudPedido" ColumnName="idSolicitudPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolicitudPedidoEstado">
+            <EntityTypeMapping TypeName="NetMarketDBModel.SolicitudPedidoEstado">
+              <MappingFragment StoreEntitySet="SolicitudPedidoEstado">
+                <ScalarProperty Name="idSolicitudPedidoEstado" ColumnName="idSolicitudPedidoEstado" />
+                <ScalarProperty Name="nombreSolicitudPedidoEstado" ColumnName="nombreSolicitudPedidoEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipodeEnvio">
+            <EntityTypeMapping TypeName="NetMarketDBModel.TipodeEnvio">
+              <MappingFragment StoreEntitySet="TipodeEnvio">
+                <ScalarProperty Name="idTipoEnvio" ColumnName="idTipoEnvio" />
+                <ScalarProperty Name="nombreTipoEnvio" ColumnName="nombreTipoEnvio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipodePago">
+            <EntityTypeMapping TypeName="NetMarketDBModel.TipodePago">
+              <MappingFragment StoreEntitySet="TipodePago">
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+                <ScalarProperty Name="nombreTipo" ColumnName="nombreTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPersona">
+            <EntityTypeMapping TypeName="NetMarketDBModel.TipoPersona">
+              <MappingFragment StoreEntitySet="TipoPersona">
+                <ScalarProperty Name="idTipoPersona" ColumnName="idTipoPersona" />
+                <ScalarProperty Name="nombreTipo" ColumnName="nombreTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="direccionCentral" ColumnName="direccionCentral" />
+                <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+                <ScalarProperty Name="nit" ColumnName="nit" />
+                <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Encargado">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Encargado">
+              <MappingFragment StoreEntitySet="Encargado">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="idSuperMercado" ColumnName="idSuperMercado" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedido">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Pedido">
+              <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="fechaPedido" ColumnName="fechaPedido" />
+                <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persona">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Persona">
+              <MappingFragment StoreEntitySet="Persona">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="CiPersona" ColumnName="CiPersona" />
+                <ScalarProperty Name="telefonoFijo" ColumnName="telefonoFijo" />
+                <ScalarProperty Name="telefonoMovilPersona" ColumnName="telefonoMovilPersona" />
+                <ScalarProperty Name="idTipoPersona" ColumnName="idTipoPersona" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="nombrePersona" ColumnName="nombrePersona" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="descripcionProducto" ColumnName="descripcionProducto" />
+                <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductoEmpresa">
+            <EntityTypeMapping TypeName="NetMarketDBModel.ProductoEmpresa">
+              <MappingFragment StoreEntitySet="ProductoEmpresa">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolicitudPedido">
+            <EntityTypeMapping TypeName="NetMarketDBModel.SolicitudPedido">
+              <MappingFragment StoreEntitySet="SolicitudPedido">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="idSolicitudPedidoEstado" ColumnName="idSolicitudPedidoEstado" />
+                <ScalarProperty Name="montoPedido" ColumnName="montoPedido" />
+                <ScalarProperty Name="fechaSolicitud" ColumnName="fechaSolicitud" />
+                <ScalarProperty Name="idTipoEnvio" ColumnName="idTipoEnvio" />
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+                <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+                <ScalarProperty Name="idSolicitudPedido" ColumnName="idSolicitudPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleOferta">
+            <EntityTypeMapping TypeName="NetMarketDBModel.DetalleOferta">
+              <MappingFragment StoreEntitySet="DetalleOferta">
+                <ScalarProperty Name="CantidadProductosOferta" ColumnName="CantidadProductosOferta" />
+                <ScalarProperty Name="porcentajeDescuento" ColumnName="porcentajeDescuento" />
+                <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+                <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oferta">
+            <EntityTypeMapping TypeName="NetMarketDBModel.oferta">
+              <MappingFragment StoreEntitySet="oferta">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="fechaFinOferta" ColumnName="fechaFinOferta" />
+                <ScalarProperty Name="fechaInicioOferta" ColumnName="fechaInicioOferta" />
+                <ScalarProperty Name="descripcionOferta" ColumnName="descripcionOferta" />
+                <ScalarProperty Name="nombreOferta" ColumnName="nombreOferta" />
+                <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="OfertaSucursal" TypeName="NetMarketDBModel.OfertaSucursal" StoreEntitySet="OfertaSucursal">
+            <EndProperty Name="Sucursal">
+              <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+            </EndProperty>
+            <EndProperty Name="oferta">
+              <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="CategoriaProducto">
+            <EntityTypeMapping TypeName="NetMarketDBModel.CategoriaProducto">
+              <MappingFragment StoreEntitySet="CategoriaProducto">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductoSucursal">
+            <EntityTypeMapping TypeName="NetMarketDBModel.ProductoSucursal">
+              <MappingFragment StoreEntitySet="ProductoSucursal">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+                <ScalarProperty Name="idProductoSucursal" ColumnName="idProductoSucursal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Destacados">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Destacados">
+              <MappingFragment StoreEntitySet="Destacados">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="idDestacado" ColumnName="idDestacado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleHorario">
+            <EntityTypeMapping TypeName="NetMarketDBModel.DetalleHorario">
+              <MappingFragment StoreEntitySet="DetalleHorario">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="idDia" ColumnName="idDia" />
+                <ScalarProperty Name="idTurno" ColumnName="idTurno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dia">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Dia">
+              <MappingFragment StoreEntitySet="Dia">
+                <ScalarProperty Name="dia1" ColumnName="dia" />
+                <ScalarProperty Name="iddia" ColumnName="iddia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turno">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Turno">
+              <MappingFragment StoreEntitySet="Turno">
+                <ScalarProperty Name="cierre" ColumnName="cierre" />
+                <ScalarProperty Name="apertura" ColumnName="apertura" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="idTurno" ColumnName="idTurno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagen">
+            <EntityTypeMapping TypeName="NetMarketDBModel.Imagen">
+              <MappingFragment StoreEntitySet="Imagen">
+                <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+                <ScalarProperty Name="Principal" ColumnName="Principal" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="idProductoEmpresa" ColumnName="idProductoEmpresa" />
+                <ScalarProperty Name="idProductoSucursal" ColumnName="idProductoSucursal" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idOferta" ColumnName="idOferta" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="rutaImagen" ColumnName="rutaImagen" />
+                <ScalarProperty Name="idImagen" ColumnName="idImagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

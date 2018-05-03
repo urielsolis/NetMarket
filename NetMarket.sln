@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMarket", "NetMarket\NetMarket.csproj", "{0DDF29C9-1DAA-41B5-A113-0893F3B1CBB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMarketData", "NetMarketData\NetMarketData.csproj", "{DA8241BA-5F8C-45A9-BE7B-C6ADACBDC876}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiNet", "ApiNet\ApiNet.csproj", "{68993F1A-DCB3-4367-8EB4-C661C96C509A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientRestNet", "ClientRestNet\ClientRestNet.csproj", "{4CB9CA75-8A5D-4600-BD1E-24535EE44012}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DDF29C9-1DAA-41B5-A113-0893F3B1CBB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDF29C9-1DAA-41B5-A113-0893F3B1CBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDF29C9-1DAA-41B5-A113-0893F3B1CBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDF29C9-1DAA-41B5-A113-0893F3B1CBB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA8241BA-5F8C-45A9-BE7B-C6ADACBDC876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8241BA-5F8C-45A9-BE7B-C6ADACBDC876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8241BA-5F8C-45A9-BE7B-C6ADACBDC876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8241BA-5F8C-45A9-BE7B-C6ADACBDC876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68993F1A-DCB3-4367-8EB4-C661C96C509A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68993F1A-DCB3-4367-8EB4-C661C96C509A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68993F1A-DCB3-4367-8EB4-C661C96C509A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68993F1A-DCB3-4367-8EB4-C661C96C509A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CB9CA75-8A5D-4600-BD1E-24535EE44012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CB9CA75-8A5D-4600-BD1E-24535EE44012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CB9CA75-8A5D-4600-BD1E-24535EE44012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CB9CA75-8A5D-4600-BD1E-24535EE44012}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://netmarketpro.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ApiNet\\ApiNet.csproj
+		SccProjectName1 = ApiNet
+		SccLocalPath1 = ApiNet
+		SccProjectUniqueName2 = NetMarket\\NetMarket.csproj
+		SccProjectName2 = NetMarket
+		SccLocalPath2 = NetMarket
+		SccProjectUniqueName3 = NetMarketData\\NetMarketData.csproj
+		SccProjectName3 = NetMarketData
+		SccLocalPath3 = NetMarketData
+		SccProjectUniqueName4 = ClientRestNet\\ClientRestNet.csproj
+		SccProjectName4 = ClientRestNet
+		SccLocalPath4 = ClientRestNet
+	EndGlobalSection
+EndGlobal
