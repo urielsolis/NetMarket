@@ -33,9 +33,9 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         public virtual ICollection<DetalleOferta> DetalleOferta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetallePedido> DetallePedido { get; set; }
-        public virtual ProductoEmpresa ProductoEmpresa { get; set; }
-        public virtual Sucursal Sucursal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Imagen> Imagen { get; set; }
+        public virtual ProductoEmpresa ProductoEmpresa { get; set; }
+        public virtual Sucursal Sucursal { get; set; }
     }
 }

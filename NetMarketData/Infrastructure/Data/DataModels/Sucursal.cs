@@ -17,10 +17,10 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sucursal()
         {
-            this.oferta = new HashSet<oferta>();
+            this.Imagen = new HashSet<Imagen>();
             this.ProductoSucursal = new HashSet<ProductoSucursal>();
             this.Turno = new HashSet<Turno>();
-            this.Imagen = new HashSet<Imagen>();
+            this.oferta = new HashSet<oferta>();
         }
     
         public long idSucursal { get; set; }
@@ -31,12 +31,12 @@ namespace NetMarketData.Infrastructure.Data.DataModels
     
         public virtual Empresa Empresa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<oferta> oferta { get; set; }
+        public virtual ICollection<Imagen> Imagen { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductoSucursal> ProductoSucursal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Turno> Turno { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Imagen> Imagen { get; set; }
+        public virtual ICollection<oferta> oferta { get; set; }
     }
 }

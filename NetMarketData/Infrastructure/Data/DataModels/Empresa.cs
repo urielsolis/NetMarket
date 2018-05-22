@@ -18,10 +18,10 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         public Empresa()
         {
             this.Encargado = new HashSet<Encargado>();
-            this.ProductoEmpresa = new HashSet<ProductoEmpresa>();
-            this.oferta = new HashSet<oferta>();
-            this.Sucursal = new HashSet<Sucursal>();
             this.Imagen = new HashSet<Imagen>();
+            this.oferta = new HashSet<oferta>();
+            this.ProductoEmpresa = new HashSet<ProductoEmpresa>();
+            this.Sucursal = new HashSet<Sucursal>();
         }
     
         public long idEmpresa { get; set; }
@@ -34,12 +34,12 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Encargado> Encargado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductoEmpresa> ProductoEmpresa { get; set; }
+        public virtual ICollection<Imagen> Imagen { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<oferta> oferta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sucursal> Sucursal { get; set; }
+        public virtual ICollection<ProductoEmpresa> ProductoEmpresa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Imagen> Imagen { get; set; }
+        public virtual ICollection<Sucursal> Sucursal { get; set; }
     }
 }

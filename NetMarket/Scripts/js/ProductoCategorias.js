@@ -1,8 +1,9 @@
 ﻿var idc=getParameterByName('idc');
 var datos3 = { idCategoria: idc};
 var _datosProductoCategoria;
+//url: "/Producto/ListarProductosCategoria",
 $.ajax({
-    url: "/Producto/ListarProductosCategoria",
+    url: "http://localhost/ApiNet/api/producto/verproductos",
     cache: false,
     data: JSON.stringify(datos3),
     type: "POST",

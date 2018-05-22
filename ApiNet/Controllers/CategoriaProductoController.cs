@@ -10,13 +10,16 @@ using System.Web.UI.WebControls;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using System.Web.Http;
+using System.Net.Http;
 using NetMarketData.Domain.Entities;
 using NetMarketData.Infrastructure.Data.DataModels;
 using ApiNet.Models;
 using NetMarketData.Domain.Services;
+using System.Web.Http.Cors;
 
 namespace ApiNet.Controllers
 {
+    //[EnableCors(origins: "*", headers: " *", methods: "*")]
     public class CategoriaProductoController : ApiController
     {
         private readonly CategoriaProductoService categoriaServicio = new CategoriaProductoService();
@@ -24,6 +27,7 @@ namespace ApiNet.Controllers
 
         [Route("api/categoriaproducto/vercategorias")]
         [HttpPost]
+        
         public IHttpActionResult vercategorias()
         {
             try

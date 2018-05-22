@@ -77,31 +77,46 @@
     <Compile Include="Domain\Services\SucursalService.cs" />
     <Compile Include="Domain\Services\TipoPersonaService.cs" />
     <Compile Include="Infrastructure\Data\DataModels\CategoriaProducto.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Destacados.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\DetalleHorario.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\DetalleOferta.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\DetallePedido.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Dia.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Empresa.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Encargado.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Imagen.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Data\DataModels\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Data\DataModels\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Data\DataModels\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\NetMarketDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -119,46 +134,46 @@
       <DependentUpon>NetMarketDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\oferta.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Pedido.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Persona.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Producto.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\ProductoEmpresa.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\ProductoSucursal.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\SeguimientoSolicitudPedido.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\SolicitudPedido.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\SolicitudPedidoEstado.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Sucursal.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\TipodeEnvio.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\TipodePago.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\TipoPersona.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\DataModels\Turno.cs">
-      <DependentUpon>NetMarketDB.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Data\Repositories\DetalleHorarioRepositorio.cs" />
     <Compile Include="Infrastructure\Data\Repositories\EFRepositorio.cs" />
@@ -179,6 +194,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NetMarketDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Infrastructure\Data\DataModels\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Infrastructure\Data\DataModels\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
     <None Include="Infrastructure\Data\DataModels\NetMarketDB.edmx.diagram">
       <DependentUpon>NetMarketDB.edmx</DependentUpon>
     </None>
@@ -189,6 +211,16 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Infrastructure\Data\DataModels\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Infrastructure\Data\DataModels\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Infrastructure\Data\DataModels\NetMarketDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>NetMarketDB.edmx</DependentUpon>

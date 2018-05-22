@@ -9,3 +9,14 @@ C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarketData\bin\Rele
 C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarketData\bin\Release\es\EntityFramework.SqlServer.resources.dll
 C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarketData\obj\Release\NetMarketData.dll
 C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarketData\obj\Release\NetMarketData.pdb
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\NetMarketData.dll.config
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\NetMarketData.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\NetMarketData.pdb
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\EntityFramework.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\EntityFramework.xml
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\es\EntityFramework.resources.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\obj\Release\NetMarketData.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\obj\Release\NetMarketData.pdb

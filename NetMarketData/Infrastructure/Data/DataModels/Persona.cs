@@ -17,8 +17,8 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Persona()
         {
-            this.Pedido = new HashSet<Pedido>();
             this.Imagen = new HashSet<Imagen>();
+            this.Pedido = new HashSet<Pedido>();
         }
     
         public long idPersona { get; set; }
@@ -35,9 +35,9 @@ namespace NetMarketData.Infrastructure.Data.DataModels
     
         public virtual Encargado Encargado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Imagen> Imagen { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedido> Pedido { get; set; }
         public virtual TipoPersona TipoPersona { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Imagen> Imagen { get; set; }
     }
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a6dd429113e24cafa2df282491394cd8" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="NetMarketDBModel1.CategoriaProducto" Width="1.5" PointX="1.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Destacados" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.DetalleHorario" Width="1.5" PointX="12.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.DetalleOferta" Width="1.5" PointX="5.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.DetallePedido" Width="1.5" PointX="12.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Dia" Width="1.5" PointX="10.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Empresa" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Encargado" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Imagen" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.oferta" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Pedido" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Persona" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Producto" Width="1.5" PointX="3.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.ProductoEmpresa" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.ProductoSucursal" Width="1.5" PointX="10.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.SeguimientoSolicitudPedido" Width="1.5" PointX="8" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.SolicitudPedido" Width="1.5" PointX="12.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.SolicitudPedidoEstado" Width="1.5" PointX="5.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Sucursal" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.TipodeEnvio" Width="1.5" PointX="10.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.TipodePago" Width="1.5" PointX="10.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.TipoPersona" Width="1.5" PointX="1.5" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetMarketDBModel1.Turno" Width="1.5" PointX="10.5" PointY="19.625" IsExpanded="true" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Imagen_CategoriaProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Producto_CategoriaProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Destacados_ProductoEmpresa" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_DetalleHorario_Dia" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_DetalleHorario_Turno" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_DetalleOferta_oferta" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_DetalleOferta_ProductoSucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_DetallePedido_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_DetallePedido_ProductoSucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Encargado_Supermercado" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Galeria_Supermercado" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_oferta_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_ProductoEmpresa_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Sucursal_Supermercado" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Encargado_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Galeria_oferta" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Galeria_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Imagen_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Imagen_ProductoEmpresa" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Imagen_ProductoSucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Imagen_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Pedido_Persona" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_SolicitudPedido_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Persona_TipoPersona" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_ProductoEmpresa_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_ProductoSucursal_ProductoEmpresa" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_ProductoSucursal_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_seguimientoSolicitudPedido_SolicitudPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_seguimientoSolicitudPedido_SolicitudPedidoEstado" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_SolicitudPedido_SolicitudPedidoEstado" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_SolicitudPedido_TipodeEnvio" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_SolicitudPedido_TipodePago" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.FK_Turno_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="NetMarketDBModel1.OfertaSucursal" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

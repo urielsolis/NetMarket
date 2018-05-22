@@ -39,11 +39,6 @@ namespace NetMarket.Controllers
             try
             {
                 var resultado = CategoriaRest.listarcategorias(param);
-                //if (resultado.Codigo != 0)
-                //{
-                //return Json("", JsonRequestBehavior.DenyGet);
-
-                //}
                 return Json(resultado, JsonRequestBehavior.DenyGet);
             }
             catch (Exception ex)

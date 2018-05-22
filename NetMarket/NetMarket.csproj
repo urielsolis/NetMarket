@@ -17,7 +17,7 @@
     <AssemblyName>NetMarket</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -84,8 +84,12 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.6\lib\net45\System.Web.Cors.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -94,8 +98,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.6\lib\net45\System.Web.Http.Cors.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -2670,6 +2678,10 @@
     <Content Include="fonts\themify\themify-icons.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\29695105_155450015137031_2256431290874303120_n.png" />
+    <Content Include="images\3460a430a8c8c466fece8499441eddcb.jpg" />
+    <Content Include="images\alimentos-organicos.jpg" />
+    <Content Include="images\article-lacteos-deportistas-5ad0914cde581.jpg" />
     <Content Include="images\banner-01.jpg" />
     <Content Include="images\banner-02.jpg" />
     <Content Include="images\banner-03.jpg" />
@@ -2697,6 +2709,12 @@
     <Content Include="images\blog-08.jpg" />
     <Content Include="images\blog-09.jpg" />
     <Content Include="images\blog-10.jpg" />
+    <Content Include="images\carne-roja.jpg" />
+    <Content Include="images\Carteles-Consum-Agencia-de-Publicidad-2.jpg" />
+    <Content Include="images\cocacola.jpg" />
+    <Content Include="images\de-la-carne-de-vaca-del-hueso-de-la-costilla-choppid-crudo-fresco-áspero-en-el-tablero-blanco-con-las-hierbas-87277782.jpg" />
+    <Content Include="images\DMRyF4eXkAEEZtB.jpg" />
+    <Content Include="images\filete-sin-procesar-en-el-libro-blanco-27029501.jpg" />
     <Content Include="images\gallery-01.jpg" />
     <Content Include="images\gallery-02.jpg" />
     <Content Include="images\gallery-03.jpg" />
@@ -2712,6 +2730,8 @@
     <Content Include="images\gallery-13.jpg" />
     <Content Include="images\gallery-14.jpg" />
     <Content Include="images\gallery-15.jpg" />
+    <Content Include="images\GASEOSAS-TE-500x500.jpg" />
+    <Content Include="images\granola-con-crema-de-cacahuete.jpg" />
     <Content Include="images\heading-pages-01.jpg" />
     <Content Include="images\heading-pages-02.jpg" />
     <Content Include="images\heading-pages-03.jpg" />
@@ -2765,10 +2785,12 @@
     <Content Include="images\product-detail-02.jpg" />
     <Content Include="images\product-detail-03.jpg" />
     <Content Include="images\shop-item-09.jpg" />
+    <Content Include="images\supermercado35-1024x399.jpg" />
     <Content Include="images\thumb-item-01.jpg" />
     <Content Include="images\thumb-item-02.jpg" />
     <Content Include="images\thumb-item-03.jpg" />
     <Content Include="images\Untitled-5.jpg" />
+    <Content Include="images\visual_metro-01.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2873,6 +2895,7 @@
     <Content Include="fonts\themify\fonts\themify.ttf" />
     <Content Include="fonts\themify\fonts\themify.woff" />
     <Content Include="fonts\themify\Themify IconFonts 5-23-2014.json" />
+    <None Include="Properties\PublishProfiles\pub.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fashe\main.js" />
     <Content Include="Scripts\fashe\main.min.js" />
@@ -3048,7 +3071,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59859</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59859/</IISUrl>
+          <IISUrl>http://localhost/NetMarket</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

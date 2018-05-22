@@ -18,8 +18,8 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         public oferta()
         {
             this.DetalleOferta = new HashSet<DetalleOferta>();
-            this.Sucursal = new HashSet<Sucursal>();
             this.Imagen = new HashSet<Imagen>();
+            this.Sucursal = new HashSet<Sucursal>();
         }
     
         public long idOferta { get; set; }
@@ -36,8 +36,8 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         public virtual ICollection<DetalleOferta> DetalleOferta { get; set; }
         public virtual Empresa Empresa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sucursal> Sucursal { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Imagen> Imagen { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sucursal> Sucursal { get; set; }
     }
 }

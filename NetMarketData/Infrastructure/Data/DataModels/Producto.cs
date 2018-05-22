@@ -17,8 +17,8 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Producto()
         {
-            this.ProductoEmpresa = new HashSet<ProductoEmpresa>();
             this.Imagen = new HashSet<Imagen>();
+            this.ProductoEmpresa = new HashSet<ProductoEmpresa>();
         }
     
         public long idProducto { get; set; }
@@ -27,10 +27,10 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         public long idCategoria { get; set; }
         public bool eliminado { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductoEmpresa> ProductoEmpresa { get; set; }
         public virtual CategoriaProducto CategoriaProducto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Imagen> Imagen { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductoEmpresa> ProductoEmpresa { get; set; }
     }
 }

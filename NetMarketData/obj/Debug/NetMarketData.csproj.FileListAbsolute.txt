@@ -10,3 +10,14 @@ C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarketData\bin\Debu
 C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarketData\obj\Debug\NetMarketData.dll
 C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarketData\obj\Debug\NetMarketData.pdb
 C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarketData\obj\Debug\NetMarketData.csprojResolveAssemblyReference.cache
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\NetMarketData.dll.config
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\NetMarketData.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\NetMarketData.pdb
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\EntityFramework.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\EntityFramework.xml
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\obj\Debug\NetMarketData.dll
+C:\Users\URIEL SOLIS\Desktop\d\visual\proyectos\NetMarket\NetMarket\NetMarketData\obj\Debug\NetMarketData.pdb

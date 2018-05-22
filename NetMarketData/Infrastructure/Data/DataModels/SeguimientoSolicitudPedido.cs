@@ -19,7 +19,7 @@ namespace NetMarketData.Infrastructure.Data.DataModels
         public Nullable<long> nuevoIdEstado { get; set; }
         public long idSolicitudPedido { get; set; }
     
-        public virtual SolicitudPedidoEstado SolicitudPedidoEstado { get; set; }
         public virtual SolicitudPedido SolicitudPedido { get; set; }
+        public virtual SolicitudPedidoEstado SolicitudPedidoEstado { get; set; }
     }
 }
